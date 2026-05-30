@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Ausreden-Kompass: Wie erkenntisreiche Debatten um KI-Regulierung gebremst werden</title>
+
+<!-- ── Basis ─────────────────────────────────────────────────── -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="KI-Ausreden-Kompass: Wie erkenntisreiche Debatten um KI-Regulierung gebremst werden.">
+<meta name="author" content="Damian Paderta">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://nozilla.de/ki-ausreden-kompass/">
+
+<!-- ── Favicons ──────────────────────────────────────────────── -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- ── Open Graph (Facebook, LinkedIn, WhatsApp …) ───────────── -->
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="nozilla.de">
+<meta property="og:url"         content="https://nozilla.de/ki-ausreden-kompass/">
+<meta property="og:url"         content="https://nozilla.de/ki-ausreden-kompass/">
+<meta property="og:title"       content="Der Ausreden-Kompass — Wie KI-Regulierung verzögert wird">
+<meta property="og:description" content="KI-Ausreden-Kompass: Wie erkenntisreiche Debatten um KI-Regulierung gebremst werden">
+<meta property="og:image"       content="https://nozilla.de/ki-ausreden-kompass/og-image.png">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt"   content="Der Ausreden-Kompass — Wie KI-Regulierung verzögert wird"">
+<meta property="og:locale"      content="de_DE">
+
+<!-- ── Twitter / X Card ─────────────────────────────────────── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Der Ausreden-Kompass — Wie KI-Regulierung verzögert wird">
+<meta name="twitter:description" content="KI-Ausreden-Kompass: Wie erkenntisreiche Debatten um KI-Regulierung gebremst werden">
+<meta name="twitter:image"       content="https://nozilla.de/ki-ausreden-kompass/og-image.png">
+<meta name="twitter:image:alt"   content="Der Ausreden-Kompass — Wie KI-Regulierung verzögert wird">
+
+<style>
+
+@font-face {
+  font-family: 'Zilla Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/zilla-slab-v12-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-500italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-700.woff2') format('woff2');
+}
+
+:root {
+ --bg:  #ffffff;
+ --ink:  #0a0a0a;
+ --mint: #53f9ac;
+ --cream: #ffffcc;
+ --border: 3px solid #0a0a0a;
+ --border-thick: 5px solid #0a0a0a;
+ --shadow: 5px 5px 0 #0a0a0a;
+ --shadow-hover: 8px 8px 0 #0a0a0a;
+}
+
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+ background: #e8e8e8;
+ background-size: 28px 28px;
+ min-height: 100vh;
+ padding: 2.5rem 1rem 5rem;
+ font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+/* ─── MAIN WRAPPER ─── */
+.corkboard {
+ max-width: 1200px;
+ margin: 0 auto;
+ // background: var(--bg);
+ padding: 2.5rem 2rem 2.5rem;
+ position: relative;
+ overflow: visible;
+}
+.corkboard::before { display: none; }
+
+/* ─── HEADER ─── */
+.header-paper {
+ border-bottom: none;
+ padding: 0rem  ;
+ margin-bottom: 1.5rem;
+
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.header-paper::before { display: none; }
+.header-paper::after { display: none; }
+
+.header-center {
+ flex: 1;
+ text-align: center;
+}
+.header-left-col {
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ flex-shrink: 0;
+ gap: 0.8rem;
+}
+.header-right-col {
+ grid-column: 3;
+ grid-row: 1 / 3;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-end;
+ gap: 0.8rem;
+ padding: 0 0 0 1rem;
+}
+
+/* pins → bold geometric squares */
+.pin {
+ position: absolute;
+ width: 16px; height: 16px;
+ z-index: 30;
+ background: var(--ink);
+}
+.pin::after { display: none; }
+.pin-red  { background: var(--mint); }
+.pin-blue  { background: var(--mint); }
+.pin-yellow { background: var(--mint); }
+.pin-green { background: var(--mint); }
+
+h1 {
+ font-family: 'Zilla Slab', serif;
+ font-size: clamp(2rem, 5vw, 3.6rem);
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.05;
+ text-align: center;
+ letter-spacing: -0.02em;
+ position: relative;
+}
+h1 .big-red {
+ color: #fff;
+ font-size: 1em;
+ display: block;
+ background: #000;
+ padding: 30px;
+ line-height: 1.1;
+ max-width: 960px;
+  margin: 0 auto 2rem;
+}
+
+.subtitle-scrawl {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.9rem;
+ font-style: normal;
+ font-weight: 400;
+ color: var(--ink);
+ text-align: center;
+ margin-top: 0.8rem;
+ opacity: 0.5;
+ letter-spacing: 0.01em;
+}
+
+.classification {
+ display: inline-block;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.58rem;
+ font-weight: 600;
+ color: rgba(10,10,10,0.5);
+ padding: 2px 0;
+ letter-spacing: 0.2em;
+ text-transform: uppercase;
+ background: transparent;
+}
+
+.institute-stamp {
+ display: inline-flex;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.5rem;
+ font-weight: 600;
+ color: var(--ink);
+ border-radius: 50%;
+ width: 72px; height: 72px;
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ text-align: center;
+ line-height: 1.4;
+ padding: 8px;
+ background: var(--mint);
+ letter-spacing: 0.04em;
+ text-transform: uppercase;
+ transform: rotate(-6deg);
+}
+
+/* ─── GRIDS ─── */
+.chaos-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 1.2rem;
+ position: relative;
+}
+.chaos-grid-mid {
+ display: grid;
+ grid-template-columns: 1fr 1.2fr 1fr;
+ gap: 1.2rem;
+ margin: 1.2rem 0;
+ align-items: start;
+}
+
+/* ─── CARD ─── */
+.card {
+ background: var(--bg);
+ border: var(--border);
+ position: relative;
+ padding: 1rem ;
+ cursor: pointer;
+ transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease;
+ transform-origin: center center;
+ box-shadow: var(--shadow);
+}
+.card:hover {
+ transform: var(--base-rotate, rotate(0deg)) translateY(-5px) !important;
+ box-shadow: var(--shadow-hover) !important;
+ z-index: 50 !important;
+ border-color: var(--ink) !important;
+}
+/* mint accent bar - removed */
+.card::before {
+ display: none;
+}
+/* card::after removed */
+
+/* no stain effect */
+.stained::before { display: none; }
+
+/* subtle rotations - enough character, not chaotic */
+.card-1 { --base-rotate:rotate(-0.8deg); transform:rotate(-0.8deg); }
+.card-2 { --base-rotate:rotate(0.6deg); transform:rotate(0.6deg); margin-top:10px; }
+.card-3 { --base-rotate:rotate(-0.4deg); transform:rotate(-0.4deg); }
+.card-4 { --base-rotate:rotate(0.9deg); transform:rotate(0.9deg); margin-top:6px; }
+.card-5 { --base-rotate:rotate(-1deg);  transform:rotate(-1deg);  margin-top:4px; }
+.card-6 { --base-rotate:rotate(0.5deg); transform:rotate(0.5deg); }
+.card-7 { --base-rotate:rotate(-0.6deg); transform:rotate(-0.6deg); margin-top:8px; }
+.card-8 { --base-rotate:rotate(0.8deg); transform:rotate(0.8deg); }
+.card-9 { --base-rotate:rotate(-0.9deg); transform:rotate(-0.9deg); margin-top:4px; }
+.card-10 { --base-rotate:rotate(0.7deg); transform:rotate(0.7deg); }
+.card-11 { --base-rotate:rotate(-0.5deg); transform:rotate(-0.5deg); margin-top:6px; }
+.card-12 { --base-rotate:rotate(1.1deg); transform:rotate(1.1deg); }
+
+/* annotation badge */
+.redpen {
+ position: absolute;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.6rem;
+ font-weight: 700;
+ font-style: italic;
+ color: var(--ink);
+ background: var(--cream);
+ padding: 1px 5px;
+ line-height: 1.5;
+ transform: rotate(var(--ann-rot, -3deg));
+ z-index: 6;
+}
+.bluepen {
+ font-style: italic;
+ font-weight: 600;
+ display: inline;
+}
+
+/* Fig label */
+.fig-label {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.58rem;
+ font-weight: 600;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: var(--ink);
+ display: block;
+ margin-bottom: 0.35rem;
+ position: relative;
+ z-index: 3;
+ padding-top: 0.25rem;
+}
+
+/* Card title */
+.card-title {
+ font-family: 'Zilla Slab', serif;
+ font-size: 1.1rem;
+ font-weight: 700;
+ color: var(--ink);
+ text-align: center;
+ margin-bottom: 1.1rem;
+ line-height: 1.2;
+ position: relative; z-index: 3;
+}
+
+/* SVG character wrapper */
+.char-img {
+ display: block;
+ margin: 0 auto 0.4rem;
+ width: 100px;
+ height: auto;
+}
+.char-wrap {
+ display: block;
+ margin: 0 auto 0.4rem;
+ overflow: visible;
+ position: relative; z-index: 3;
+}
+
+/* Quote bubble - black bg, white text */
+.bubble {
+ background: var(--ink);
+ padding: 0.7rem 0.8rem;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.82rem;
+ font-style: italic;
+ line-height: 1.55;
+ color: #ffffff;
+ position: relative;
+ margin-bottom: 0.5rem;
+ z-index: 3;
+}
+/* geometric speech notch - black */
+.bubble::before {
+ content: '';
+ position: absolute;
+ top: -7px; left: 46%;
+ width: 20px; height: 10px;
+ background: var(--ink);
+ clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+.bubble::after {
+ display: none;
+}
+
+/* Analysis line */
+.scrawl {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.78rem;
+ font-weight: 400;
+ font-style: italic;
+ color: var(--ink);
+ line-height: 1.55;
+ position: relative; z-index: 3;
+ border-left: 4px solid var(--mint);
+ padding-left: 0.6rem;
+}
+.scrawl .hi {
+ background: var(--mint);
+ padding: 0 3px;
+ font-style: normal;
+ font-weight: 700;
+}
+
+/* ─── HUB ─── */
+.hub-zone {
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ padding: 1rem 0.5rem;
+ position: relative;
+}
+.hub-zone::before, .hub-zone::after { display: none; }
+.hub-card {
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ text-align: center;
+ padding: 12rem 1rem;
+ position: relative;
+ z-index: 10;
+ 
+}
+.hub-card .hub-kompass {
+ font-family: 'Zilla Slab', serif;
+ font-size: clamp(2rem, 5vw, 3.2rem);
+ font-weight: 700;
+ line-height: 1.05;
+ letter-spacing: -0.02em;
+ color: var(--ink);
+ text-align: center;
+}
+.hub-kompass .hub-hi {
+ background: var(--mint);
+ padding: 0 6px;
+ display: inline-block;
+}
+
+
+
+/* ─── AXIS BANNERS ─── */
+.axis-banner {
+ text-align: center;
+ margin: 3rem 0 0.6rem;
+ position: relative;
+ z-index: 10;
+}
+.axis-banner span {
+ display: inline-block;
+ font-family: 'Zilla Slab', serif;
+ font-size: 1.5rem;
+ font-weight: 700;
+ letter-spacing: 0.02em;
+ padding: 2p0x;
+background: #53f9ac;
+ position: relative;
+ margin-bottom: 1.3rem;
+}
+.axis-banner span::before, .axis-banner span::after { display: none; }
+
+.ab-red  { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
+.ab-purple { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
+.ab-green { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
+.ab-amber { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
+
+/* ─── STICKY NOTE ─── */
+.sticky {
+ background: var(--cream);
+ padding: 0.6rem 0.8rem;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.72rem;
+ font-weight: 500;
+ color: var(--ink);
+ line-height: 1.55;
+ display: inline-block;
+}
+.sticky::before { display: none; }
+
+/* ─── FOOTER ─── */
+.footer-paper {
+ background: var(--cream);
+ margin-top: 3rem;
+ padding: 1.2rem 1.5rem;
+ display: flex; flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: center; gap: 0.8rem;
+}
+.legend { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.leg {
+ display: flex; align-items: center; gap: 0.5rem;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.78rem;
+ font-weight: 400;
+ color: var(--ink);
+}
+.leg-dot {
+ width: 10px; height: 10px;
+ border-radius: 50%;
+ background: var(--ink);
+ flex-shrink: 0;
+}
+.source-note {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.9rem;
+ color: rgba(10,10,10,0.6);
+ text-align: center;
+ line-height: 1.8;
+ margin-top: 3.5rem;
+ padding: 1.5rem 0 1rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-wrap: wrap;
+ gap: 0.6rem;
+}
+
+.hub-compass-svg {
+ width: 100%;
+ max-width: 320px;
+ margin: 0 auto;
+ display: block;
+}
+
+@keyframes compass-wobble {
+ 0%  { transform: rotate(-8deg); }
+ 18% { transform: rotate(12deg); }
+ 35% { transform: rotate(-5deg); }
+ 52% { transform: rotate(9deg); }
+ 67% { transform: rotate(-11deg); }
+ 83% { transform: rotate(6deg); }
+ 100% { transform: rotate(-8deg); }
+}
+#compass-needle {
+ animation: compass-wobble 7s ease-in-out infinite;
+ transform-origin: 100px 100px;
+ transform-box: view-box;
+}
+
+/* animations */
+@keyframes drop-in {
+ 0%  { opacity:0; transform:translateY(-20px) scale(0.9); }
+ 70% { transform:translateY(3px) scale(1.01); }
+ 100% { opacity:1; transform:translateY(0) scale(1); }
+}
+.card { animation: drop-in 0.45s cubic-bezier(.34,1.56,.64,1) both; }
+.card:nth-child(1) { animation-delay:.04s }
+.card:nth-child(2) { animation-delay:.09s }
+.card:nth-child(3) { animation-delay:.14s }
+.card:nth-child(4) { animation-delay:.19s }
+.card:nth-child(5) { animation-delay:.24s }
+.card:nth-child(6) { animation-delay:.29s }
+.card:nth-child(7) { animation-delay:.34s }
+.card:nth-child(8) { animation-delay:.39s }
+.card:nth-child(9) { animation-delay:.44s }
+.card:nth-child(10) { animation-delay:.49s }
+.card:nth-child(11) { animation-delay:.54s }
+.card:nth-child(12) { animation-delay:.59s }
+
+@media(max-width:850px){
+ .chaos-grid { grid-template-columns:repeat(2,1fr); }
+ .chaos-grid-mid { grid-template-columns:1fr; }
+ .hub-zone::before { display:none; }
+}
+@media(max-width:480px){
+ .chaos-grid { grid-template-columns:1fr; }
+}
+
+.card { cursor: pointer; }
+
+/* ─── OVERLAY ─── */
+#overlay {
+ display: none;
+ position: fixed;
+ inset: 0;
+ background: rgba(10,10,10,0.75);
+ z-index: 1000;
+ align-items: center;
+ justify-content: center;
+ padding: 1.5rem;
+ flex-direction: column;
+}
+#overlay.open { display: flex; }
+
+#overlay-inner {
+ background: var(--bg);
+ border: var(--border-thick);
+ max-width: 720px;
+ width: 100%;
+ max-height: 90vh;
+ overflow-y: auto;
+ overflow-x: hidden;
+ position: relative;
+ padding: 2.8rem 2.4rem 2.2rem;
+ box-shadow: 10px 10px 0 var(--ink);
+ animation: popIn 0.22s cubic-bezier(.34,1.56,.64,1) both;
+}
+/* mint top bar in overlay */
+#overlay-inner::before {
+ content: '';
+ position: absolute;
+ top: 0; left: 0; right: 0;
+ height: 10px;
+ background: var(--mint);
+}
+@keyframes popIn {
+ from { opacity:0; transform:scale(0.9) translateY(16px); }
+ to  { opacity:1; transform:scale(1) translateY(0); }
+}
+
+#overlay-close {
+ position: absolute;
+ top: 14px; right: 16px;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 1.2rem;
+ font-weight: 700;
+ color: var(--ink);
+ background: var(--mint);
+ border: 3px solid var(--ink);
+ width: 34px; height: 34px;
+ display: flex; align-items: center; justify-content: center;
+ cursor: pointer;
+ line-height: 1;
+ z-index: 10;
+ transition: transform 0.15s, background 0.15s;
+}
+#overlay-close:hover {
+ transform: rotate(90deg);
+ background: var(--cream);
+}
+
+#ov-fig {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.52rem;
+ font-weight: 700;
+ letter-spacing: 0.22em;
+ text-transform: uppercase;
+ color: rgba(10,10,10,0.45);
+ margin-bottom: 0.3rem;
+ display: block;
+ position: relative; z-index: 2;
+}
+#ov-title {
+ font-family: 'Zilla Slab', serif;
+ font-size: 1.8rem;
+ font-weight: 700;
+ color: var(--ink);
+ line-height: 1.1;
+ margin-bottom: 1rem;
+ position: relative; z-index: 2;
+}
+/* mint underline on title */
+#ov-title::after {
+ content: '';
+ display: block;
+ height: 5px;
+ background: var(--mint);
+ margin-top: 0.4rem;
+ width: 60px;
+}
+
+.ov-row {
+ display: grid;
+ grid-template-columns: 120px 1fr;
+ gap: 1.4rem;
+ margin-bottom: 1.4rem;
+ align-items: start;
+ position: relative; z-index: 2;
+}
+#ov-svg-wrap {
+ display: flex;
+ align-items: flex-start;
+ justify-content: center;
+ border: var(--border);
+ padding: 0.5rem;
+ background: #fafafa;
+}
+#ov-svg-wrap svg { overflow: visible; }
+
+.ov-meta { display: flex; flex-direction: column; gap: 0.7rem; }
+#ov-bubble {
+ background: var(--ink);
+ padding: 0.8rem 1rem;
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.95rem;
+ font-style: italic;
+ line-height: 1.6;
+ color: #ffffff;
+ position: relative;
+}
+#ov-bubble::before {
+ content: '';
+ position: absolute;
+ top: -8px; left: 14px;
+ width: 12px; height: 10px;
+ background: var(--ink);
+ clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+}
+#ov-bubble::after {
+ display: none;
+}
+#ov-scrawl {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.82rem;
+ font-style: italic;
+ font-weight: 400;
+ color: var(--ink);
+ line-height: 1.5;
+ border-left: 5px solid var(--mint);
+ padding-left: 0.8rem;
+}
+#ov-scrawl .hi {
+ background: var(--mint);
+ font-style: normal;
+ font-weight: 700;
+ padding: 0 3px;
+}
+
+.ov-divider { display: none; }
+.ov-longtext-label {
+ font-family: 'Zilla Slab', serif;
+ font-size: 1rem;
+ font-weight: 700;
+ color: var(--ink);
+ display: block;
+ margin-bottom: 0.9rem;
+ position: relative; z-index: 2;
+}
+#ov-longtext {
+ font-family: 'IBM Plex Sans', sans-serif;
+ font-size: 0.9rem;
+ line-height: 1.8;
+ color: var(--ink);
+ position: relative; z-index: 2;
+}
+#ov-longtext p { margin-bottom: 0.9em; }
+#ov-longtext p:last-child { margin-bottom: 0; }
+
+@media(max-width:500px){
+ .ov-row { grid-template-columns: 1fr; }
+ #ov-svg-wrap { justify-content: flex-start; }
+ #overlay-inner { padding: 2rem 1.2rem 1.8rem; }
+}
+
+.ov-lit {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid #53f9ac;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.ov-lit-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.4);
+  display: block;
+  margin-bottom: 0.7rem;
+}
+.ov-lit ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.ov-lit li {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #0a0a0a;
+}
+.ov-lit-author { font-weight: 600; }
+.ov-lit-journal { color: rgba(10,10,10,0.45); font-style: italic; }
+.ov-lit a {
+  color: #0a0a0a;
+  text-decoration: none;
+  border-bottom: 1.5px solid #53f9ac;
+}
+
+.ov-lit a:hover { background: #53f9ac; }
+
+.intro-box {
+  background: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  padding: 1.4rem 1.8rem;
+  max-width: 960px;
+  margin: 0 auto 2rem;  
+  position: relative;
+}
+
+.intro-box p {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--ink);   
+  
+}
+
+.intro-box p:last-child { margin-bottom: 0; }
+.intro-box strong {
+  font-weight: 600;
+  background: var(--mint);
+  padding: 0 2px;
+}
+.download-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 0rem;
+  padding-top: 0rem;
+  border-top: 0px solid var(--ink);
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--mint);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 0.75rem 1.6rem;
+  text-decoration: none;
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+.download-btn:hover {
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: translate(-1px, -1px);
+}
+.download-btn:active {
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+.download-btn svg {
+  flex-shrink: 0;
+}
+</style>
+
+</head>
+<body>
+<div class="corkboard">
+
+ <!-- HEADER PAPER -->
+ <div class="header-paper">
+
+  <!-- Left column (now empty) -->
+  <div class="header-left-col"></div>
+
+  <!-- Center: title -->
+  <div class="header-center">
+   <h1>
+    <span class="big-red">Wie KI-Regulierung verzögert wird</span></h1>
+    <h2>DER AUSREDEN-KOMPASS</h2>
+  </div>    
+ </div>
+  <div class="intro-box"> 
+  <p>Wenn über KI-Regulierung diskutiert wird, sind die Argumente gegen sie oft erstaunlich stabil, unabhängig davon, wer sie vorbringt, in welchem Forum und zu welchem konkreten Vorhaben. Der Ausreden-Kompass dokumentiert zwölf dieser wiederkehrenden Argumentationsmuster, die einzeln oder in Kombination, dazu dienen, regulatorisches Handeln zu verzögern, zu delegitimieren oder strukturell zu blockieren. <br>Manche Muster <strong>schieben Verantwortung auf andere</strong>, andere <strong>verharmlosen den Handlungsbedarf</strong>, wieder andere münden in <strong>Resignation vor dem Technologischen</strong> und eine vierte Gruppe konstruiert <strong>Regulierung selbst als Schadensquelle</strong>. Die Zitate sind stilisiert, aber nicht erfunden. Ein Klick auf eine Karte öffnet weitere Erkäuterungen zur Kritik an der Position samt mit Quellenangaben.</p>
+</div>
+
+ <!-- AXIS BANNER TOP -->
+ <div class="axis-banner" style="margin-bottom:0.8rem;">
+  <span class="ab-red">↑ Abwälzen von Verantwortung ↑</span>
+ </div>
+
+ <!-- TOP ROW: 4 red cards -->
+ <div class="chaos-grid">
+
+  <!-- F1: Whataboutismus -->
+  <div class="card card-1" data-card="1" style="">
+   <div class="pin pin-red" style="top:-7px; left:50%; transform:translateX(-50%);"></div>
+   <span class="fig-label">FIG. 1 - WHATABOUTISMUS</span>
+   <img src="1.svg" class="char-wrap char-img" alt="Figur 1">
+   <p class="card-title">Der Ablenker</p>
+   <div class="bubble">»Hatten wir nicht schon immer Algorithmen? Das Rad. Die Dampfmaschine. KI ist nichts Neues.«</div>
+   
+  </div>
+
+  <!-- F2: Individualismus -->
+  <div class="card card-2" data-card="2" style="" >
+   <div class="pin pin-yellow" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">FIG. 2 - INDIVIDUALISMUS</span>
+   <img src="2.svg" class="char-wrap char-img" alt="Figur 2">
+   <p class="card-title">Der Einzeller</p>
+   <div class="bubble">»Regulierung bevormundet. Jede:r kann selbst entscheiden, was ethisch ist.«</div>
+  </div>
+
+  <!-- F3: Geopolitik -->
+  <div class="card card-3" data-card="3" style="" >
+   <div class="pin pin-blue" style="top:-7px; right:50%;"></div>
+   <span class="fig-label">FIG. 3 - TRITTBRETTFAHRER</span>
+   <img src="3.svg" class="char-wrap char-img" alt="Figur 3">
+   <p class="card-title">Der Geopolitiker</p>
+   <div class="bubble">»China und USA entwickeln das sowieso. Wir ändern nichts - verlieren nur den Anschluss.«</div>
+  </div>
+
+  <!-- F4: Ethik-Theater -->
+  <div class="card card-4 stained" data-card="4" style="">
+   <div class="pin pin-green" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">FIG. 4 - ETHIK-THEATER</span>
+   <img src="4.svg" class="char-wrap char-img" alt="Figur 4">
+   <p class="card-title">Die Nebelkerze</p>
+   <div class="bubble">»Wir haben ein Ethik-Board. Wir sind weltweit führend in verantwortungsvoller KI. Erledigt.«</div>
+  
+  </div>
+
+ </div><!-- /.chaos-grid top -->
+
+ <!-- MID ROW -->
+ <div class="chaos-grid-mid">
+
+  <!-- LEFT: purple (Determinismus) -->
+  <div>
+   <div class="axis-banner" style="margin-bottom:0.7rem;">
+    <span class="ab-purple">← Resignation vor dem Unvermeidlichen</span>
+   </div>
+
+   <!-- F12: Fatalismus -->
+   <div class="card card-12" data-card="12" style="margin-bottom:1rem;">
+    <div class="pin pin-red" style="top:-7px; left:45%;"></div>
+    <span class="fig-label">FIG. 12 - TECHNOLOGISCHER FATALISMUS</span>
+    <img src="12.svg" class="char-wrap char-img" alt="Figur 12">
+    <p class="card-title"> Der Abgeklärte</p>
+    <div class="bubble">»KI ist unaufhaltsam wie die Schwerkraft. Surft mit oder werdet überrollt.«</div>
+   </div>
+
+   <!-- F11: Untergangsfantasien -->
+   <div class="card card-11" data-card="11" style="">
+    <div class="pin pin-yellow" style="top:-7px; right:50%;"></div>
+    <span class="fig-label">FIG. 11 - APOKALYPTISMUS</span>
+    <img src="11.svg" class="char-wrap char-img" alt="Figur 11">
+    <p class="card-title">Der Untergangsbeschwörer</p>
+    <div class="bubble">»AGI macht alles irrelevant. Regulieren ist Augenwischerei vor dem Unausweichlichen.«</div>
+   </div>
+  </div>
+
+  <!-- CENTER -->
+  <div class="hub-zone">
+   <div class="hub-card">
+
+   <!-- Compass SVG -->
+   <svg class="hub-compass-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Outer ring -->
+    <circle cx="100" cy="100" r="92" fill="none" stroke="#0a0a0a" stroke-width="3"/>
+    <!-- Inner ring -->
+    <circle cx="100" cy="100" r="78" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
+    <!-- Cardinal tick marks -->
+    <line x1="100" y1="8" x2="100" y2="22" stroke="#0a0a0a" stroke-width="3"/>
+    <line x1="100" y1="178" x2="100" y2="192" stroke="#0a0a0a" stroke-width="3"/>
+    <line x1="8" y1="100" x2="22" y2="100" stroke="#0a0a0a" stroke-width="3"/>
+    <line x1="178" y1="100" x2="192" y2="100" stroke="#0a0a0a" stroke-width="3"/>
+    <!-- Intercardinal tick marks (smaller) -->
+    <line x1="35" y1="35" x2="44" y2="44" stroke="#0a0a0a" stroke-width="1.5"/>
+    <line x1="156" y1="35" x2="165" y2="44" stroke="#0a0a0a" stroke-width="1.5" transform="rotate(90,160.5,39.5)"/>
+    <line x1="35" y1="156" x2="44" y2="165" stroke="#0a0a0a" stroke-width="1.5"/>
+    <line x1="156" y1="156" x2="165" y2="165" stroke="#0a0a0a" stroke-width="1.5"/>
+    <!-- Cardinal labels -->
+    <text x="100" y="6"  font-family="Zilla Slab,serif" font-size="13" font-weight="700" fill="#0a0a0a" text-anchor="middle"></text>
+    <text x="100" y="198" font-family="Zilla Slab,serif" font-size="13" font-weight="700" fill="#0a0a0a" text-anchor="middle"></text>
+    <text x="5"  y="105" font-family="Zilla Slab,serif" font-size="13" font-weight="700" fill="#0a0a0a" text-anchor="middle"></text>
+    <text x="196" y="105" font-family="Zilla Slab,serif" font-size="13" font-weight="700" fill="#0a0a0a" text-anchor="middle"></text>
+    <!-- Animated needle group -->
+    <g id="compass-needle" style="transform-origin:100px 100px;">
+     <!-- North needle (mint) -->
+     <polygon points="100,28 107,105 100,96 93,105" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5" stroke-linejoin="round"/>
+     <!-- South needle (dark) -->
+     <polygon points="100,172 107,95 100,104 93,95" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="1.5" stroke-linejoin="round"/>
+    </g>
+    <!-- Center pivot -->
+    <circle cx="100" cy="100" r="7" fill="#0a0a0a"/>
+    <circle cx="100" cy="100" r="3" fill="#53f9ac"/>
+    <!-- Degree marks (every 30°) -->
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(30,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(60,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(120,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(150,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(210,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(240,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(300,100,100)"/>
+    <line x1="100" y1="22" x2="100" y2="28" stroke="#0a0a0a" stroke-width="1" transform="rotate(330,100,100)"/>
+   </svg>
+   </div>
+  </div>
+
+  <!-- RIGHT: green (Verharmlosung) -->
+  <div>
+   <div class="axis-banner" style="margin-bottom:0.7rem;">
+    <span class="ab-green">Verharmlosung des Handlungsbedarfs →</span>
+   </div>
+
+   <!-- F5: KI wird uns retten -->
+   <div class="card card-5" data-card="5" style="margin-bottom:1rem;">
+    <div class="pin pin-green" style="top:-7px; right:50%;"></div>
+    <span class="fig-label">FIG. 5 - TECHNOSOLUTIONISMUS</span>
+    <img src="5.svg" class="char-wrap char-img" alt="Figur 5">
+    <p class="card-title">Der Messias</p>
+    <div class="bubble">»AGI löst Klimawandel, Hunger, Armut - wir dürfen die Entwicklung nicht bremsen!«</div>
+   </div>
+
+   <!-- F6: Scaling -->
+   <div class="card card-6" data-card="6" style="">
+    <div class="pin pin-blue" style="top:-7px; left:50%;"></div>
+    <span class="fig-label">FIG. 6 - SKALIERUNGSFETISCH</span>
+    <img src="6.svg" class="char-wrap char-img" alt="Figur 6">
+    <p class="card-title">Der Skalierer</p>
+    <div class="bubble">»Wenn die Modelle groß genug sind, lösen sich alle Probleme von selbst.«</div>
+   </div>
+  </div>
+
+ </div><!-- /.chaos-grid-mid -->
+
+ <!-- AXIS BANNER BOTTOM -->
+ <div class="axis-banner" style="margin-bottom:0.8rem;">
+  <span class="ab-amber">↓ Regulierung als Schadensquelle ↓</span>
+ </div>
+
+ <!-- BOTTOM ROW: 4 amber cards -->
+ <div class="chaos-grid">
+
+  <!-- F10: Angstmacherei -->
+  <div class="card card-10" data-card="10" style="">
+   <div class="pin pin-blue" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">FIG. 10 - Angstmacherei</span>
+   <img src="10.svg" class="char-wrap char-img" alt="Figur 10">
+   <p class="card-title">Der Job-Cowboy</p>
+   <div class="bubble">»Regulierung kostet Tausende Jobs! Wir vernichten unsere Wettbewerbsfähigkeit!«</div>
+  </div>
+
+  <!-- F9: Perfektionismus -->
+  <div class="card card-9" data-card="9" style="">
+   <div class="pin pin-red" style="top:-7px; right:50%;"></div>
+   <span class="fig-label">FIG. 9 - NIRVANA-FALLACY</span>
+   <img src="9.svg" class="char-wrap char-img" alt="Figur 9">
+   <p class="card-title">Der Perfektionist</p>
+   <div class="bubble">»Nur eine Lösung, die ALLE Stakeholder vollständig befriedigt, kommt infrage.«</div>
+  
+  </div>
+
+  <!-- F8: Gerechtigkeits-Vorwand -->
+  <div class="card card-8" data-card="8" style="">
+   <div class="pin pin-yellow" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">FIG. 8 - INSTRUMENTALISIERUNG</span>
+   <img src="8.svg" class="char-wrap char-img" alt="Figur 8">
+   <p class="card-title">Der falsche Ritter</p>
+   <div class="bubble">»Regulierung schadet dem Globalen Süden am meisten! Denken Sie an die Ärmsten!«</div>
+  </div>
+
+  <!-- F7: Soft Law -->
+  <div class="card card-7 stained" data-card="7" style="">
+   <div class="pin pin-green" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">FIG. 7 - SOFT LAW ONLY</span>
+   <img src="7.svg" class="char-wrap char-img" alt="Figur 7">
+   <p class="card-title">Der Unverbindliche</p>
+   <div class="bubble">»Verbindliche Regulierung tötet Innovation. Ein ehrliches Commitment der Industrie reicht aus.«</div>
+  
+  </div>
+
+ </div><!-- /.chaos-grid bottom -->
+</div>
+
+  <div class="download-bar">
+  <a class="download-btn" href="https://code.nozilla.net/kompass-der-ausreden/KI-Ausreden-Kompass.pdf" download>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M9 2v9M9 11l-3-3M9 11l3-3" stroke="#0a0a0a" stroke-width="2" stroke-linecap="square"/>
+      <path d="M2 13v2a1 1 0 001 1h12a1 1 0 001-1v-2" stroke="#0a0a0a" stroke-width="2" stroke-linecap="square"/>
+    </svg>
+    Als PDF herunterladen
+  </a>
+</div>
+  
+  <p class="source-note">
+   <a href="https://nozilla.de" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;text-decoration:underline;">Damian Paderta</a> | <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="text-decoration:none;" title="CC BY-SA 4.0">
+    <img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" alt="Creative Commons BY-SA 4.0" style="vertical-align:middle;display:inline;height:15px;margin:0 4px;">
+   </a>
+   <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;">CC BY-SA 4.0</a>
+  </p>
+ </div>
+  
+<!-- <div style="display:flex;justify-content:center;margin-top:2.5rem;">
+   <div class="sticky" style="transform:rotate(-1.5deg)">Quelle:<br>diverse Tech-<br>Konferenzen<br>2023–2025 😬</div>
+  </div>-->
+  
+
+
+</div><!-- /.corkboard -->
+
+
+<!-- ═══════════════════════════════════════════════════════ OVERLAY ═══ -->
+<div id="overlay" role="dialog" aria-modal="true">
+ <div id="overlay-inner">
+  <button id="overlay-close" aria-label="Schließen">✕</button>
+  <span id="ov-fig"></span>
+  <h2 id="ov-title"></h2>
+  <div class="ov-row">
+   <div id="ov-svg-wrap"></div>
+   <div class="ov-meta">
+    <div id="ov-bubble"></div>
+    <p id="ov-scrawl"></p>
+   </div>
+  </div>  
+  <span class="ov-longtext-label">Kritik</span>
+  <div id="ov-longtext"></div>
+  <div id="ov-lit"></div>
+ </div>
+</div>
+
+<script>
+const CARDS = {
+ 1: {
+  fig: "FIG. 1 - WHATABOUTISMUS",
+  title: "Der Ablenker",
+  bubble: "»Hatten wir nicht schon immer Algorithmen? Das Rad. Die Dampfmaschine. Dasselbe.«",
+  scrawl: "<span class='hi'>Historische Analogien verwischen den qualitativen Unterschied zwischen früheren Technologien und KI-Systemen, die in Echtzeit auf Millionen Menschen wirken.</span>",
+  color: "#555",
+  long: `<p>Der Whataboutismus im KI-Diskurs ist eine rhetorische Technik, bei der auf Bedenken über Künstliche Intelligenz mit dem Hinweis auf historische Vorläufer geantwortet wird. »Hatten wir nicht bei der Einführung des Buchdrucks dieselben Debatten?« oder »Das Rad wurde auch nicht reguliert«. Diese Sätze klingen auf den ersten Blick vernünftig. Sie sind es nicht!</p>
+<p>Das strukturelle Problem liegt in der Verwechslung von quantitativer und qualitativer Diskontinuität. Jede Technologie bringt Veränderungen, aber nicht jede Technologie verändert die epistemischen, sozialen und wirtschaftlichen Grundlagen einer Gesellschaft in ähnlicher Breite und Geschwindigkeit. Sprachgenerierende KI-Systeme, die in Sekundenbruchteilen Millionen von Texten erzeugen können, die von Menschen nicht als maschinell erkannt werden, sind in ihrer gesellschaftlichen Wirkung nicht mit der Weberei vergleichbar, auch wenn beide »neue Werkzeuge« sind.</p>
+<p>Zusätzlich arbeitet der Whataboutismus mit einer impliziten Botschaft: Da frühere Gesellschaften technologische Transformationen »überlebt« haben, wird die aktuelle Generation es ebenso tun und zwar ohne regulatorischen Eingriff. Diese Schlussfolgerung ignoriert, dass frühere Gesellschaften keineswegs schadlos durch Technologiewandel navigierten. Die Industrialisierung etwa produzierte jahrzehntelange Kinderarbeit, Massenverelendung und politische Gewalt, bevor regulatorische Eingriffe die schlimmsten Exzesse einzuhegen begannen.</p>
+<p>Im KI-Diskurs dient der Whataboutismus primär der Entschleunigung von Governance-Prozessen: Wer jede Regulierungsdebatte mit historischen Parallelen öffnet, verschiebt den Fokus von konkreten Risikopotenzialen auf abstrakte Kontinuitätsfragen und gewinnt damit Zeit.</p>`
+
+ },
+ 2: {
+  fig: "FIG. 2 - INDIVIDUALISMUS",
+  title: "Der Einzeller",
+  bubble: "»Regulierung bevormundet. Jede:r entscheidet selbst, ob KI ethisch eingesetzt wird.«",
+  scrawl: "<span class='hi'>Wenn jede:r selbst entscheidet, was ethisch ist, entscheiden in der Praxis die mit den meisten Servern. </span>",
+  color: "#555",
+  long: `<p>Der Individualismus-Reflex im KI-Diskurs übersetzt das systemische Risikoproblem in eine Frage der persönlichen Verantwortung. »Jede:r Nutzer:in kann selbst entscheiden, wie sie oder er KI verwendet.« Klingt nach Freiheit, ist strukturell aber eine Zumutung.</p>
+<p>Der Fehler liegt in der Annahme, dass die Schäden durch KI-Systeme vorrangig durch individuelle Nutzungsentscheidungen entstehen. Tatsächlich sind die relevanten Risiken wie etwas algorithmische Diskriminierung in Kreditvergabe oder Bewerbungsverfahren, automatisierte Desinformationsproduktion im politischen Raum, Datenschutzverletzungen durch undurchsichtige Trainingsprozesse, keine Folge individueller Fehlentscheidungen, sondern Eigenschaften von Systemen, die von einzelnen Nutzer:innen weder beeinflussbar noch überschaubar sind.</p>
+<p>Wer für einen Kredit abgelehnt wird, weil ein Modell die Postleitzahl als Risikomerkmal gewichtet, trifft keine »schlechte Entscheidung«. Wer als Bewerberin in einem automatisierten Screening-System schlechter abschneidet, weil das Trainingskorpus historische Lohnungleichheiten reproduziert, hat keine Wahl getroffen, die sie durch klügeres individuelles Verhalten hätte korrigieren können.</p>
+<p>Die Verortung von Verantwortung auf individueller Ebene ist deshalb nicht nur analytisch unzutreffend, sondern hat eine politische Funktion: Sie entlastet Systementwickler:innen und Plattformbetreibende von struktureller Rechenschaftspflicht. Der Begriff »digitale Mündigkeit«, der in diesem Zusammenhang regelmäßig auftaucht, bezeichnet dann nicht Ermächtigung, sondern Entlastung der Produzentenseite.
+<br> Systemische Risiken lassen sich nicht durch individuelle Verantwortungsübernahme regulieren. Das würde voraussetzen, dass Einzelpersonen Zugang, Information und Macht haben, die sie aber strukturell nicht besitzen.
+
+</p>`
+ },
+ 3: {
+  fig: "FIG. 3 - TRITTBRETTFAHRER-AUSREDE",
+  title: "Der Geopolitiker",
+  bubble: "»China und USA entwickeln das sowieso. Wir ändern nichts daran sondern verlieren nur den Anschluss.«",
+  scrawl: " <span class='hi'>Das Argument, andere Staaten würden nicht regulieren, erzeugt ein kollektives Handlungsproblem, das als Begründung für Untätigkeit dient, obwohl es eigentlich gemeinsames Handeln erfordern würde.</span>",
+  color: "#555",
+  long: `<p>Das geopolitische Argument ist das Trittbrettfahrer-Problem in seiner reinsten Form: Da andere Akteure (meist China oder »Silicon Valley«) ohne regulatorische Einschränkungen entwickeln, erscheint eigene Regulierung nicht nur wirkungslos, sondern selbstschädigend. Regulierung wird als einseitige Abrüstung im Technologiewettbewerb gerahmt.</p>
+<p>Dieser Denkfehler lässt sich auf mehreren Ebenen rekonstruieren. Erstens ist die empirische Prämisse falsch: Sowohl die Europäische Union mit dem AI Act als auch einzelne US-amerikanische Bundesstaaten und zunehmend auch chinesische Behörden haben regulatorische Frameworks entwickelt oder angekündigt. Der »regulierungsfreie Wilde Westen« ist eine Rahmung, keine Beschreibung der tatsächlichen globalen Governance-Landschaft.</p>
+<p>Zweitens verwechselt das Argument Wettbewerbsfähigkeit mit Rücksichtslosigkeit. Es gibt erhebliche Evidenz dafür, dass Regulierungsrahmen (insbesondere verbindliche Qualitäts- und Transparenzstandards) langfristig Vertrauen in Technologien erzeugen und damit Marktdurchdringung erleichtern, nicht erschweren. Das Beispiel der DSGVO zeigt, dass europäische Datenschutzstandards sich als globales Regulierungsexport-Modell etabliert haben, nicht als Wettbewerbsnachteil.</p>
+<p>Drittens transportiert das Argument eine problematische Logik: Wenn alle Akteure mit dem Verhalten anderer argumentieren, um die eigene Passivität zu rechtfertigen, produziert das kollektive Unterregulierung als strukturelles Gleichgewicht - eine typische Anreizproblematik kollektiven Handelns, das sich nicht durch den Verweis auf andere lösen lässt, sondern nur durch koordinierte Governance.</p>`
+ },
+ 4: {
+  fig: "FIG. 4 - ETHIK-THEATER",
+  title: "Die Nebelkerze",
+  bubble: "»Wir sind weltweit führend in verantwortungsvoller KI. Ethik-Komitee eingesetzt. Erledigt.«",
+  scrawl: "<span class='hi'>Ein Ethik-Beirat, der keine verbindlichen Entscheidungen trifft, ist Dekoration, keine Governance.</span>",
+  color: "#555",
+  long: `<p>»Responsible AI«, »Ethical AI by Design«, »AI Safety Teams« - der inflationäre Gebrauch dieser Begriffe in den Selbstdarstellungen großer Technologieunternehmen ist so bemerkenswert wie die gleichzeitige Abwesenheit verbindlicher Mechanismen, die diesen Versprechen Substanz verleihen würden. Das Phänomen wurde in der Forschung als »Ethics Washing« beschrieben: symbolische Compliance ohne strukturelle Konsequenz.</p>
+<p>Das Muster ist konsistent: Ein Unternehmen kündigt ein Ethik-Board an. Das Board trifft sich, veröffentlicht Prinzipien. Die Prinzipien sind formuliert als Aspirationen, nicht als verbindliche Anforderungen. Sie enthalten keine Sanktionsmechanismen, keine unabhängige Überprüfung, keine Eskalationspfade. Das Board wird aufgelöst oder umstrukturiert, wenn seine Empfehlungen produktpolitisch unbequem werden - was regelmäßig vorkommt.</p>
+<p>Besonders aufschlussreich ist die Sprache dieser Initiativen. »Wir glauben, dass KI sicher, fair und transparent sein sollte« ist keine Governance-Aussage. Es ist eine Meinungsäußerung. Die entscheidende Frage »Und was passiert, wenn Ihre Systeme das nicht sind?« bleibt in Corporate-Ethik-Papieren strukturell unbeantwortet.</p>
+<p>Das Ethik-Theater hat eine wichtige politische Funktion: Es besetzt den Raum, den verbindliche Regulierung ausfüllen würde, mit weichen Signalen und kommuniziert damit an Regulierungsbehörden: »Wir regeln das selbst.« Dass diese Selbstregulierung in strukturell unterregulierten Märkten systematisch versagt, ist keine Überraschung, sondern eine vorhersehbare Konsequenz fehlender Durchsetzungsmechanismen.</p>`
+ },
+ 5: {
+  fig: "FIG. 5 - TECHNOSOLUTIONISMUS",
+  title: "Der Messias",
+  bubble: "»AGI löst Klimawandel, Hunger, Armut - wir dürfen die Entwicklung nicht bremsen! KI wird uns alle retten«",
+  scrawl: "<span class='hi'>»AGI löst das Problem nur nicht jetzt. Und bitte keine Fragen bis dahin.« Die Erwartung zukünftiger KI-Lösungen für gesellschaftliche Probleme suspendiert die Notwendigkeit gegenwärtiger Regulierung auf unbestimmte Zeit.</span>",
+  color: "#555",
+  long: `<p>Der technosolutionistische Position ist eine der ältesten Standpunkte der Technikphilosophie: Die Technologie selbst wird als Erlösung aus den Problemen stilisiert, die sie möglicherweise mitverursacht oder mitverursachen wird. Im KI-Kontext nimmt diese Figur besonders elaborierte Formen an: Artificial General Intelligence (AGI) wird als zukünftiger Problemlöser für gegenwärtige gesellschaftliche Herausforderungen positioniert und diese Positionierung dient gleichzeitig als Argument gegen gegenwärtige Regulierung.</p>
+<p>Die argumentative Struktur ist eine Art temporale Arbitrage: Zukünftige Kapazitäten werden gegen gegenwärtige Regulierungskosten aufgerechnet. »Wenn wir die Entwicklung jetzt verlangsamen, verlieren wir die Möglichkeit, später das Klima zu retten« - diese Aussage ist in mehrfacher Hinsicht problematisch. Sie setzt erstens die Realisierung zukünftiger Kapazitäten als gegeben voraus. Sie ignoriert zweitens, dass gegenwärtige KI-Systeme bereits jetzt erhebliche Emissionen durch Trainingsaufwände verursachen. Und sie verschweigt drittens, dass Regulierung selten auf Verhinderung, sondern auf Steuerung zielt.</p>
+<p>Besonders aufschlussreich ist die Selektivität des Technosolutionismus: Die Lösung zukünftiger Probleme durch AGI wird als sicher angenommen, während die Risiken zukünftiger unkontrollierter KI-Systeme als spekulativ abgetan werden. Diese asymmetrische Behandlung von Unsicherheit ist kein epistemischer Fehler, sondern eine rhetorische Strategie.</p>
+<p>In der Diskursanalyse fällt auf, dass technosolutionistische Argumente häufig von denjenigen vorgebracht werden, deren wirtschaftliche Interessen an einer beschleunigten Entwicklung hängen, was die Frage nach der Trennung von epistemischer Überzeugung und interessengeleiteter Kommunikation aufwirft.</p>`
+ },
+ 6: {
+  fig: "FIG. 6 - SKALIERUNGSFETISCH",
+  title: "Der Skalierer",
+  bubble: "»Wenn die Modelle groß genug sind, lösen sich alle Probleme von selbst.«",
+  scrawl: "<span class='hi'>Mehr Parameter sollen das Problem lösen, das mehr Parameter verursacht haben. Leistungssteigerung durch Skalierung wird als Problemlösung ausgegeben, obwohl viele der relevanten Risiken erst durch Skalierung entstehen.</span>",
+  color: "#555",
+  long: `<p>Die Skalierungshypothese: Die Annahme, dass größere Modelle mit mehr Daten und mehr Rechenleistung qualitativ bessere und sicherere Systeme produzieren, hat sich als eine der wirkmächtigsten und gleichzeitig problematischsten Glaubenssätze des KI-Diskurses etabliert. Ihre Evidenzbasis ist gemischt; ihre politische Funktion ist klar.</p>
+<p>Empirisch stimmt es, dass Skalierung in bestimmten Aufgabendomänen zu messbaren Leistungsverbesserungen geführt hat - insbesondere in sprachbasierten Benchmarks. Was diese Benchmarks testen und ob sie für gesellschaftlich relevante Qualitätsdimensionen valide sind, ist jedoch eine separate Frage. Skalierung verbessert beispielsweise nicht notwendigerweise die Kalibriertheit von Modellen - also die Übereinstimmung zwischen ausgedrückter Unsicherheit und tatsächlicher Fehlerrate. Sie reduziert nicht systematisch Halluzinationen. Und sie löst nicht die grundlegenden Alignment-Probleme, also die Frage, ob Systeme das tun, was Nutzer:innen tatsächlich wollen.</p>
+<p>Die politische Funktion des Skalierungsglaubens liegt in seiner Implikation für Regulierung: Wenn »mehr Daten und mehr Compute« die Probleme von selbst lösen, braucht es keine externe Governance. Regulierung wird als Eingriff in einen sich selbst korrigierenden Prozess gerahmt. Dass dieser Prozess historisch keine konsistenten Belege für seine Selbstkorrektur in sicherheitsrelevanten Dimensionen erbracht hat, stört diese Narration kaum.</p>
+<p>Bemerkenswert ist auch die ökologische Dimension, die im Skalierungsdiskurs systematisch ausgeblendet wird: Das Training sehr großer Modelle verbraucht erhebliche Mengen an Energie und Wasser. »Mehr Compute« ist keine neutrale technische Aussage, sondern eine ressourcenpolitische Entscheidung mit globalen Konsequenzen.</p>`
+ },
+ 7: {
+  fig: "FIG. 7 - SOFT LAW ONLY",
+  title: "Der Unverbindliche",
+  bubble: "»Verbindliche Regulierung tötet Innovation. Ein ehrliches Industrie-Commitment reicht.«",
+  scrawl: "<span class='hi'>Freiwillige Selbstverpflichtungen ohne externe Überprüfung überlassen die Definition von Compliance denjenigen, deren Verhalten reguliert werden soll.</span>",
+  color: "#555",
+  long: `<p>Das Argument für freiwillige Selbstverpflichtung als Ersatz für verbindliche Regulierung ist im Kern eine Governance-Theorie: Industrieakteure kennen ihre Technologien besser als staatliche Behörden, haben ein Eigeninteresse an sicherem Betrieb (Reputationsrisiko) und können schneller reagieren als demokratische Gesetzgebungsprozesse. Alle drei Prämissen sind zumindest diskussionswürdig.</p>
+<p>Das Informationsgefälle zwischen Industrie und Regulierung ist real - aber es ist kein Argument gegen Regulierung, sondern für bessere Regulierungskapazitäten und Transparenzpflichten. Reputationsrisiken disziplinieren Unternehmen in sichtbaren Konsumgütersektoren; in B2B-KI-Anwendungen, in Entscheidungsunterstützungssystemen für Behörden oder in algorithmischen Systemen, deren Wirkungen diffus und verzögert auftreten, ist der Disziplinierungsmechanismus erheblich schwächer. Und Reaktionsgeschwindigkeit ist kein Wert an sich - schnelles Handeln ohne Verbindlichkeit produziert bloß eine höhere Frequenz unverbindlicher Commitments.</p>
+<p>Empirisch zeigt die Evidenz aus anderen Sektoren - Finanzmarktregulierung, Umweltschutz, Lebensmittelsicherheit - dass freiwillige Selbstverpflichtung als alleiniger Regulierungsmodus in Bereichen mit Externalisierungsanreizen systematisch versagt. Wenn die Kosten von Schäden auf Dritte abgewälzt werden können, gibt es keinen ausreichenden Marktanreiz für ausreichende Schutzmaßnahmen.</p>
+<p>Was Soft Law (unverbindliche Übereinkünfte oder Absichtserklärungen) in hybriden Governance-Architekturen leisten kann: Flexibilität, sektorspezifische Expertise oder schnelle Anpassung an technologische Entwicklungen ist durchaus wertvoll. Die Forderung nach Soft Law als exklusivem Steuerungsinstrument jedoch delegitimiert verbindliche Governance ohne empirische Grundlage. Der »Kleinfinger-Schwur« mit sich selbst ist kein Ersatz für eine Vertragsbeziehung mit der Gesellschaft.</p>`
+ },
+ 8: {
+  fig: "FIG. 8 - INSTRUMENTALISIERUNG",
+  title: "Der falsche Ritter",
+  bubble: "»Regulierung schadet dem Globalen Süden am meisten! Denken Sie an die Ärmsten!«",
+  scrawl: "Soziale Gerechtigkeit als Vorwand. <span class='hi'>Legitime Gerechtigkeitsfragen werden gegen Schutzmaßnahmen in Stellung gebracht, ohne dass alternative Schutzmechanismen für die genannten Gruppen vorgeschlagen werden.</span>",
+  color: "#555",
+  long: `<p>Gerechtigkeitsdiskurse sind im KI-Kontext notwendig und berechtigt. KI-Systeme reproduzieren und verstärken bestehende Ungleichheiten - durch verzerrte Trainingsdaten, durch ungleiche Zugangsbedingungen, durch die geografische Konzentration von KI-Wertschöpfung im Globalen Norden. Diese Probleme sind real und verlangen strukturelle Antworten.</p>
+<p>Das Muster, das hier beschrieben wird, ist ein anderes: die Instrumentalisierung legitimer Gerechtigkeitsdiskurse als rhetorisches Mittel gegen jede Form von KI-Regulierung, ohne dass alternative Schutzmaßnahmen vorgeschlagen werden. »Regulierung schadet dem Globalen Süden« - dieser Satz erscheint häufig in Debatten über Regulierungsmaßnahmen, ohne dass er je mit einer konkreten Analyse unterfüttert wird, warum ausgerechnet Schutzstandards für marginalisierte Gruppen diese benachteiligen würden.</p>
+<p>Die empirische Evidenz zeigt vielmehr das Gegenteil: KI-Systeme ohne Qualitätsstandards und Rechenschaftspflicht schaden überproportional denjenigen, die wenig politischen und rechtlichen Zugang zur Durchsetzung ihrer Interessen haben. Automatisierte Entscheidungssysteme in Asylverfahren, in sozialen Transferleistungen oder in der Kreditvergabe ohne Regulierung benachteiligen systematisch vulnerable Gruppen.</p>
+<p>Die Unehrlichkeit dieser Argumentationsfigur liegt nicht in den Worten, sondern in dem, was sie verschweigt: Wer Gerechtigkeitsdiskurse gegen Regulierung einsetzt, ohne gleichzeitig alternative Schutzmaßnahmen zu benennen, benutzt Marginalisierung als Schild für etwas anderes. Die Frage, »cui bono« (wem nützt diese Argumentation?) ist hier besonders aufschlussreich zu stellen.</p>`
+ },
+ 9: {
+  fig: "FIG. 9 - NIRVANA-FALLACY",
+  title: "Der Perfektionist",
+  bubble: "»Nur eine Lösung, die ALLE Stakeholder vollständig befriedigt, kommt infrage.«",
+  scrawl: "<span class='hi'>Die Forderung nach universell konsensfähiger Regulierung ist in pluralistischen Gesellschaften strukturell unerfüllbar und wirkt deshalb als dauerhaftes Vetoinstrument.</span>",
+  color: "#555",
+  long: `<p>Die »Nirvana-Fallacy« (Trugschluss der perfekten Lösung) ist ein klassisches argumentatives Muster: Eine reale, imperfekte Lösung wird nicht an anderen realen, imperfekten Alternativen gemessen, sondern an einem idealen Zustand, der per Definition unerreichbar ist. Im KI-Regulierungskontext lautet die entsprechende Aussage: »Wir sollten nur solche Regulierungen einführen, die von allen relevanten Stakeholdern vollständig getragen werden.«</p>
+<p>In komplexen Politikfeldern mit heterogenen Interessenlagen )das KI-Governance-Feld ist ein solches) gibt es keinen Zustand universellen Einvernehmens. Regulierungsmaßnahmen betreffen unterschiedliche Akteure unterschiedlich stark und produzieren regelmäßig Verlierer wie Gewinner. Das Anforderungsprofil des vollständigen Konsenses ist deshalb kein anspruchsvoller Standard, sondern ein strukturelles Vetorecht für jeden einzelnen Akteur mit Interessenkollision.</p>
+<p>Demokratische Gesellschaften haben für dieses Problem Lösungen entwickelt: Mehrheitsentscheidungen, Kompromissverfahren, rechtlich strukturierte Interessenabwägungen. Diese Mechanismen produzieren nicht perfekte, aber legitime und revisierbare Entscheidungen. Die Forderung nach Konsens ist deshalb keine demokratiepolitische Stärkung, sondern ihre Umgehung durch Entscheidungsblockade.</p>
+<p>Besonders wirkmächtig ist der Perfektionismus in Kombination mit Zeitdruck: Solange über den idealen Regulierungsrahmen verhandelt wird, können Systeme ausgerollt werden, die unter einem hypothetisch besseren Regime möglicherweise nicht genehmigt worden wären. Die Temporalität ist also nicht neutral: Jede Verzögerung im Regulierungsprozess ist gleichzeitig eine Erlaubnis zum weiteren unregulierten Einsatz.</p>`
+ },
+ 10: {
+  fig: "FIG. 10 - ANGSTMACHEREI",
+  title: "Der Job-Cowboy",
+  bubble: "»Regulierung kostet Tausende Jobs! Wir vernichten unsere Wettbewerbsfähigkeit!«",
+  scrawl: "<span class='hi'>Regulierungskosten werden präzise quantifiziert, während die ökonomischen Folgen fehlender Regulierung als externe Kosten unsichtbar bleiben.</span>",
+  color: "#555",
+  long: `<p>Wirtschaftliche Folgenabschätzungen sind legitime und notwendige Bestandteile von Regulierungsdebatten. Die Frage, welche ökonomischen Kosten und Nutzen eine Regulierungsmaßnahme erzeugt, verdient sorgfältige empirische Analyse. Das Muster, das hier beschrieben wird, ist ein anderes: die selektive, asymmetrische Verwendung ökonomischer Argumente zur Delegitimierung von Regulierung.</p>
+<p>Die Asymmetrie zeigt sich typischerweise darin, dass Regulierungskosten präzise benannt werden: Compliance-Aufwände, potenzielle Verlangsamung von Entwicklungszyklen, hypothetische Wettbewerbsnachteile —, während die ökonomischen Kosten fehlender Regulierung unsichtbar bleiben. Was kostet es, wenn KI-basierte Kreditscoring-Systeme diskriminieren? Was kostet es volkswirtschaftlich, wenn Desinformationssysteme das Vertrauen in demokratische Institutionen erodieren? Was kosten die Beschäftigungseffekte unregulierter Automatisierung, wenn keine Qualifizierungsbegleitung vorgesehen ist?</p>
+<p>Diese Fragen verschwinden in der Kostendebatte systematisch, weil ihre Beantwortung methodisch schwieriger ist und weil die Betroffenen weniger gut organisiert sind als die regulierten Unternehmen. Ökonominnen sprechen von negativen Externalitäten: Kosten, die von Dritten getragen werden und deshalb in privatwirtschaftliche Kalkulationen nicht eingehen - es sei denn, Regulierung zwingt zur Internalisierung.</p>
+<p>Besonders aufschlussreich ist der Vergleich mit anderen Regulierungsfeldern: Lebensmittelsicherheitsstandards »kosten« die Nahrungsmittelindustrie Geld. Abgasvorschriften »kosten« Automobilhersteller Geld. Die Frage ist nicht, ob Regulierung Kosten produziert (das tut sie immer), sondern ob diese Kosten im Verhältnis zu den vermiedenen Schäden stehen. Diese Verhältnisfrage wird in der Angstmacherei konsequent nicht gestellt.</p>`
+ },
+ 11: {
+  fig: "FIG. 11 - APOKALYPTISMUS",
+  title: "Der Untergangsbeschwörer",
+  bubble: "»AGI macht alles irrelevant. Regulieren ist Augenwischerei vor dem Unausweichlichen.«",
+  scrawl: "<span class='hi'>Die Vorstellung einer unvermeidlichen KI-Superintelligenz macht gegenwärtige Governance-Arbeit bedeutungslos — mit demselben Ergebnis wie technologischer Optimismus: Stillstand.</span>",
+  color: "#555",
+  long: `<p>Der apokalyptische KI-Diskurs und der technosolutionistische Diskurs erscheinen als Gegensätze - der eine sieht in KI die Bedrohung der Menschheit, der andere ihre Rettung. Strukturell sind sie jedoch Geschwister: Beide stellen zukünftige KI-Kapazitäten als so überwältigend dar, dass gegenwärtige Governance-Maßnahmen bedeutungslos erscheinen. Sie enthalten unterschiedliche emotionale Aussagen aber politische Konsequenzen ist naehzu identisch.</p>
+<p>Die apokalyptische Variante arbeitet typischerweise mit dem Konzept der Superintelligenz oder einer »Singularität«: einem Punkt, an dem KI-Systeme die menschliche Kontrolle irreversibel übersteigen. Wenn dieser Punkt ohnehin kommt, so die Implikation, sind alle Regulierungsversuche Schönheitspflege am Abgrund. Diese Figur taucht sowohl bei ernsthaften KI-Sicherheitsforschenden als auch bei medienwirksamen KI-Enthusiasten auf, die beide der konkreten politischen Arbeit an regulatorischen Frameworks eher skeptisch gegenüberstehen.</p>
+<p>Das Problem liegt nicht darin, dass existenzielle Risiken durch KI nicht ernst genommen werden sollten - das sollten sie. Das Problem liegt in der argumentativen Konsequenz, die aus der Ernsthaftigkeit dieser Risiken gezogen wird. Wenn die Antwort auf »KI könnte katastrophal sein« lautet »also regulieren wir lieber nicht«, hat ein Kurzschluss stattgefunden. Die naheliegende Konsequenz wäre das Gegenteil: gerade weil die Risiken potenziell schwerwiegend sind, braucht es robuste Governance.</p>
+<p>Bemerkenswert ist auch, wer apokalyptische Erzählungen im Diskurs platziert: Häufig sind es Akteure, die gleichzeitig intensiv an der Entwicklung mächtiger KI-Systeme beteiligt sind. Die Botschaft »Es kommt sowieso, und es wird gewaltig« hat eine doppelte Wirkung - sie erzeugt öffentliche Ehrfurcht und delegitimiert gleichzeitig regulatorische Eingriffe als unzureichend oder kontraproduktiv.</p>`
+
+
+ },
+
+ 12: {
+  fig: "FIG. 12 - TECHNO-FATALISMUS",
+  title: "Der Abgeklärte",
+  bubble: "»KI ist unaufhaltsam wie die Schwerkraft. Surft mit oder werdet überrollt.Wandel ist unaufhaltbar«",
+  scrawl: "<span class='hi'>Die Darstellung technologischen Wandels als naturgesetzlich unausweichlich entzieht politischen Entscheidungen über Richtung, Tempo und Verteilung der Legitimation.</span>",
+  color: "#555",
+  long: `<p>Technologischer Determinismus ist die Überzeugung, dass Technologieentwicklung einem eigenlogischen, von gesellschaftlichen Entscheidungen weitgehend unabhängigen Pfad folgt. In seiner drastischeren Form, dem Techno-Fatalismus, impliziert diese Überzeugung, dass Gesellschaften sich an Technologien anpassen, nicht umgekehrt. Im KI-Kontext lautet die entsprechende Aussage: »KI wird sich durchsetzen - ob wir wollen oder nicht. Die Frage ist nur, ob wir vorne oder hinten dabei sind.«</p>
+<p>Die empirische Evidenz für starken technologischen Determinismus ist schwach. Gesellschaftliche Entscheidungen über Forschungsfinanzierung, Patentrechte, Infrastrukturinvestitionen, Arbeitsmarktpolitik und regulatorische Rahmenbedingungen prägen erheblich, welche Technologien sich entwickeln, wie schnell und in welche Richtung. Das Internet hätte ohne staatliche Forschungsförderung andere Eigenschaften. Kerntechnologie hat sich in verschiedenen gesellschaftlichen Kontexten unterschiedlich entwickelt. Die Annahme, KI sei ein Naturphänomen, das sich unabhängig von menschlichen Entscheidungen entfaltet, ist eine politische Aussage im Gewand einer naturwissenschaftlichen Beschreibung.</p>
+<p>Besonders wirkmächtig ist die Surfen-Metapher: Sie normiert Anpassung als rationale Reaktion auf eine unvermeidliche Welle und pathologisiert damit regulatorische Steuerungsversuche als irrationale Resistenz gegen das Unvermeidliche. Die Metapher überträgt eine physikalische Eigenschaft (Wellen lassen sich nicht aufhalten) auf ein soziotechnisches System, das tatsächlich in erheblichem Maße durch institutionelle und politische Entscheidungen geformt wird.</p>
+<p>Die gesellschaftliche Attraktivität des Fatalismus liegt in seiner entlastenden Wirkung: Wenn der Wandel unausweichlich ist, entfällt die unbequeme Frage nach Verantwortung, Gestaltung und demokratischer Legitimation von Entscheidungen, die weitreichende gesellschaftliche Konsequenzen haben. Governance-Arbeit ist mühsam; Surfen klingt leichter.</p>`
+ }
+ };
+
+// ─── Overlay logic ───────────────────────────────────────────
+const overlay  = document.getElementById('overlay');
+const ovFig   = document.getElementById('ov-fig');
+const ovTitle  = document.getElementById('ov-title');
+const ovBubble  = document.getElementById('ov-bubble');
+const ovScrawl  = document.getElementById('ov-scrawl');
+const ovLong   = document.getElementById('ov-longtext');
+const ovSvgWrap = document.getElementById('ov-svg-wrap');
+const closeBtn  = document.getElementById('overlay-close');
+const ovInner  = document.getElementById('overlay-inner');
+const LITS = {
+  1: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Lamb et al. (2020)</span> · <a href="https://doi.org/10.1017/sus.2020.13" target="_blank" rel="noopener">Discourses of climate delay</a> <span class="ov-lit-journal">— Global Sustainability</span></li>
+    <li><span class="ov-lit-author">Winner (1980)</span> · <a href="https://www.jstor.org/stable/20024652" target="_blank" rel="noopener">Do Artifacts Have Politics?</a> <span class="ov-lit-journal">— Daedalus</span></li>
+    <li><span class="ov-lit-author">Jasanoff & Kim (2015)</span> · <a href="https://press.uchicago.edu/ucp/books/book/chicago/D/bo20836025.html" target="_blank" rel="noopener">Dreamscapes of Modernity</a> <span class="ov-lit-journal">— Univ. of Chicago Press</span></li>
+  </ul></div>`,
+
+  2: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Solove (2013)</span> · <a href="https://harvardlawreview.org/print/vol-126/privacy-self-management-and-the-consent-dilemma/" target="_blank" rel="noopener">Privacy Self-Management and the Consent Dilemma</a> <span class="ov-lit-journal">— Harvard Law Review</span></li>
+    <li><span class="ov-lit-author">Zuboff (2018)</span> · <a href="https://www.campus.de/buecher-campus-verlag/wissenschaft/soziologie/das_zeitalter_des_ueberwachungskapitalismus-13937.html" target="_blank" rel="noopener">Das Zeitalter des Überwachungskapitalismus</a> <span class="ov-lit-journal">— Campus Verlag</span></li>
+    <li><span class="ov-lit-author">Barocas & Nissenbaum (2014)</span> · <a href="https://doi.org/10.1017/CBO9781107590205.003" target="_blank" rel="noopener">Big Data's End Run around Anonymity and Consent</a> <span class="ov-lit-journal">— Cambridge University Press</span></li>
+  </ul></div>`,
+
+  3: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Calo (2017)</span> · <a href="https://lawreview.law.ucdavis.edu/issues/51/2/symposium/51-2_calo.pdf" target="_blank" rel="noopener">Artificial Intelligence Policy: A Primer and Roadmap</a> <span class="ov-lit-journal">— UC Davis Law Review</span></li>
+    <li><span class="ov-lit-author">Roberts et al. (2021)</span> · <a href="https://doi.org/10.1007/s00146-020-00992-2" target="_blank" rel="noopener">The Chinese approach to artificial intelligence</a> <span class="ov-lit-journal">— AI & Society</span></li>
+    <li><span class="ov-lit-author">Kania (2019)</span> · <a href="https://www.cnas.org/publications/reports/chinese-ai-in-a-global-context" target="_blank" rel="noopener">Chinese AI in a Global Context</a> <span class="ov-lit-journal">— CNAS</span></li>
+  </ul></div>`,
+
+  4: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Bietti (2020)</span> · <a href="https://doi.org/10.1145/3351095.3372860" target="_blank" rel="noopener">From Ethics Washing to Ethics Bashing</a> <span class="ov-lit-journal">— ACM FAccT</span></li>
+    <li><span class="ov-lit-author">Jobin, Ienca & Vayena (2019)</span> · <a href="https://doi.org/10.1038/s42256-019-0088-2" target="_blank" rel="noopener">The global landscape of AI ethics guidelines</a> <span class="ov-lit-journal">— Nature Machine Intelligence</span></li>
+    <li><span class="ov-lit-author">Metcalf, Moss & boyd (2019)</span> · <a href="https://doi.org/10.1353/sor.2019.0031" target="_blank" rel="noopener">Owning Ethics</a> <span class="ov-lit-journal">— Social Research</span></li>
+  </ul></div>`,
+
+  5: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Morozov (2013)</span> · <a href="https://www.publicaffairsbooks.com/titles/evgeny-morozov/to-save-everything-click-here/9781610391382/" target="_blank" rel="noopener">To Save Everything, Click Here</a> <span class="ov-lit-journal">— PublicAffairs</span></li>
+    <li><span class="ov-lit-author">Broussard (2018)</span> · <a href="https://mitpress.mit.edu/9780262537018/artificial-unintelligence/" target="_blank" rel="noopener">Artificial Unintelligence</a> <span class="ov-lit-journal">— MIT Press</span></li>
+    <li><span class="ov-lit-author">Coeckelbergh (2020)</span> · <a href="https://mitpress.mit.edu/9780262538190/ai-ethics/" target="_blank" rel="noopener">AI Ethics</a> <span class="ov-lit-journal">— MIT Press</span></li>
+  </ul></div>`,
+
+  6: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Bender et al. (2021)</span> · <a href="https://doi.org/10.1145/3442188.3445922" target="_blank" rel="noopener">On the Dangers of Stochastic Parrots</a> <span class="ov-lit-journal">— ACM FAccT</span></li>
+    <li><span class="ov-lit-author">Crawford (2021)</span> · <a href="https://yalebooks.yale.edu/book/9780300264630/atlas-of-ai/" target="_blank" rel="noopener">Atlas of AI</a> <span class="ov-lit-journal">— Yale University Press</span></li>
+    <li><span class="ov-lit-author">Strubell et al. (2019)</span> · <a href="https://doi.org/10.18653/v1/P19-1355" target="_blank" rel="noopener">Energy and Policy Considerations for Deep Learning in NLP</a> <span class="ov-lit-journal">— ACL Anthology</span></li>
+  </ul></div>`,
+
+  7: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Dafoe (2018)</span> · <a href="https://www.fhi.ox.ac.uk/wp-content/uploads/GovAI-Agenda.pdf" target="_blank" rel="noopener">AI Governance: A Research Agenda</a> <span class="ov-lit-journal">— Future of Humanity Institute</span></li>
+    <li><span class="ov-lit-author">Cihon (2019)</span> · <a href="https://www.fhi.ox.ac.uk/wp-content/uploads/Standards_-FHI-Technical-Report.pdf" target="_blank" rel="noopener">Standards for AI Governance</a> <span class="ov-lit-journal">— Future of Humanity Institute</span></li>
+    <li><span class="ov-lit-author">Martini (2019)</span> · <a href="https://doi.org/10.1007/978-3-658-24755-7" target="_blank" rel="noopener">Blackbox Algorithmus</a> <span class="ov-lit-journal">— Springer VS</span></li>
+  </ul></div>`,
+
+  8: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Mohamed, Png & Isaac (2020)</span> · <a href="https://doi.org/10.1007/s13347-020-00405-8" target="_blank" rel="noopener">Decolonial AI</a> <span class="ov-lit-journal">— Philosophy & Technology</span></li>
+    <li><span class="ov-lit-author">Birhane (2021)</span> · <a href="https://doi.org/10.1016/j.patter.2021.100205" target="_blank" rel="noopener">Algorithmic injustice: a relational ethics approach</a> <span class="ov-lit-journal">— Patterns</span></li>
+    <li><span class="ov-lit-author">Couldry & Mejias (2019)</span> · <a href="https://doi.org/10.1177/1527476418796632" target="_blank" rel="noopener">Data Colonialism</a> <span class="ov-lit-journal">— Television & New Media</span></li>
+  </ul></div>`,
+
+  9: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Collingridge (1980)</span> · <a href="https://archive.org/details/socialcontroloft0000coll" target="_blank" rel="noopener">The Social Control of Technology</a> <span class="ov-lit-journal">— Frances Pinter</span></li>
+    <li><span class="ov-lit-author">Baldwin, Cave & Lodge (2012)</span> · <a href="https://global.oup.com/academic/product/understanding-regulation-9780199576081" target="_blank" rel="noopener">Understanding Regulation</a> <span class="ov-lit-journal">— Oxford University Press</span></li>
+    <li><span class="ov-lit-author">Danaher et al. (2017)</span> · <a href="https://doi.org/10.1177/2053951717726554" target="_blank" rel="noopener">Algorithmic governance: Developing a research agenda</a> <span class="ov-lit-journal">— Big Data & Society</span></li>
+  </ul></div>`,
+
+  10: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Acemoglu & Restrepo (2019)</span> · <a href="https://doi.org/10.1257/jep.33.2.3" target="_blank" rel="noopener">Automation and New Tasks</a> <span class="ov-lit-journal">— Journal of Economic Perspectives</span></li>
+    <li><span class="ov-lit-author">Arntz, Gregory & Zierahn (2016)</span> · <a href="https://doi.org/10.1787/5jlz9h56dvq7-en" target="_blank" rel="noopener">The Risk of Automation for Jobs in OECD Countries</a> <span class="ov-lit-journal">— OECD Working Paper</span></li>
+    <li><span class="ov-lit-author">Eubanks (2018)</span> · <a href="https://us.macmillan.com/books/9781250074317/automatinginequality" target="_blank" rel="noopener">Automating Inequality</a> <span class="ov-lit-journal">— St. Martin's Press</span></li>
+  </ul></div>`,
+
+  11: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">Bostrom (2014)</span> · <a href="https://global.oup.com/academic/product/superintelligence-9780199678112" target="_blank" rel="noopener">Superintelligence</a> <span class="ov-lit-journal">— Oxford University Press</span></li>
+    <li><span class="ov-lit-author">Marcus & Davis (2019)</span> · <a href="https://www.penguinrandomhouse.com/books/603982/rebooting-ai-by-gary-marcus-and-ernest-davis/" target="_blank" rel="noopener">Rebooting AI</a> <span class="ov-lit-journal">— Pantheon</span></li>
+    <li><span class="ov-lit-author">Floridi et al. (2018)</span> · <a href="https://doi.org/10.1007/s11023-018-9482-5" target="_blank" rel="noopener">AI4People — An Ethical Framework</a> <span class="ov-lit-journal">— Minds and Machines</span></li>
+  </ul></div>`,
+
+  12: `<div class="ov-lit"><span class="ov-lit-label">Weiterführende Literatur</span><ul>
+    <li><span class="ov-lit-author">MacKenzie & Wajcman (1999)</span> · <a href="https://www.mheducation.co.uk/the-social-shaping-of-technology-9780335199136-emea-group" target="_blank" rel="noopener">The Social Shaping of Technology</a> <span class="ov-lit-journal">— Open University Press</span></li>
+    <li><span class="ov-lit-author">Winner (1977)</span> · <a href="https://mitpress.mit.edu/9780262730495/autonomous-technology/" target="_blank" rel="noopener">Autonomous Technology</a> <span class="ov-lit-journal">— MIT Press</span></li>
+    <li><span class="ov-lit-author">Jasanoff (2016)</span> · <a href="https://wwnorton.com/books/The-Ethics-of-Invention/" target="_blank" rel="noopener">The Ethics of Invention</a> <span class="ov-lit-journal">— W.W. Norton</span></li>
+  </ul></div>`,
+};
+
+
+function openCard(num) {
+ const d = CARDS[num];
+ if (!d) return;
+
+ ovFig.textContent  = d.fig;
+ ovTitle.textContent = d.title;
+ ovBubble.innerHTML = d.bubble;
+ // Show only the highlighted part of scrawl
+ const scrawlTemp = document.createElement('div');
+ scrawlTemp.innerHTML = d.scrawl;
+ const hiSpans = scrawlTemp.querySelectorAll('.hi');
+ if (hiSpans.length > 0) {
+  ovScrawl.innerHTML = Array.from(hiSpans).map(s => s.outerHTML).join(' ');
+ } else {
+  ovScrawl.innerHTML = d.scrawl;
+ }
+ ovLong.innerHTML  = d.long;
+document.getElementById('ov-lit').innerHTML = LITS[num] || '';
+ // accent colour
+ ovInner.style.setProperty('--accent-color', d.color);
+ ovFig.style.color = d.color;
+ const divider = ovInner.querySelector('.ov-divider');
+ if (divider) divider.style.borderColor = d.color + '44';
+
+ // load external SVG for overlay
+ ovSvgWrap.innerHTML = `<img src="${num}.svg" alt="Figur ${num}" style="width:100%;max-width:360px;height:auto;display:block;margin:0 auto;">`;
+
+ overlay.classList.add('open');
+ document.body.style.overflow = 'hidden';
+ ovInner.scrollTop = 0;
+}
+
+function closeOverlay() {
+ overlay.classList.remove('open');
+ document.body.style.overflow = '';
+}
+
+// card clicks
+document.querySelectorAll('.card[data-card]').forEach(card => {
+ card.addEventListener('click', () => openCard(+card.dataset.card));
+});
+
+closeBtn.addEventListener('click', closeOverlay);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
+</script>
+</body>
+</html>
