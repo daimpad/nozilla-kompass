@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nozilla Kompass — Der Ausreden-Kompass</title>
+
+<meta name="description" content="Zwei interaktive Kompasse, die wiederkehrende Argumentationsmuster dokumentieren, mit denen politisches Handeln verzögert oder blockiert wird.">
+<meta name="author" content="Damian Paderta">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://daimpad.github.io/nozilla-kompass/">
+
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="Nozilla Kompass">
+<meta property="og:url"         content="https://daimpad.github.io/nozilla-kompass/">
+<meta property="og:title"       content="Nozilla Kompass — Der Ausreden-Kompass">
+<meta property="og:description" content="Zwei interaktive Kompasse, die wiederkehrende Argumentationsmuster dokumentieren, mit denen politisches Handeln verzögert oder blockiert wird.">
+<meta property="og:locale"      content="de_DE">
+
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Nozilla Kompass — Der Ausreden-Kompass">
+<meta name="twitter:description" content="Zwei interaktive Kompasse, die wiederkehrende Argumentationsmuster gegen KI-Regulierung und offene Daten dokumentieren.">
+
+<style>
+@font-face {
+  font-family: 'Zilla Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('ki-regulierung/fonts/zilla-slab-v12-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('ki-regulierung/fonts/ibm-plex-sans-v23-latin-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('ki-regulierung/fonts/ibm-plex-sans-v23-latin-500italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('ki-regulierung/fonts/ibm-plex-sans-v23-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('ki-regulierung/fonts/ibm-plex-sans-v23-latin-700.woff2') format('woff2');
+}
+
+/* Landing-page-specific overrides */
+.lp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 640px) {
+  .lp-grid { grid-template-columns: 1fr; }
+}
+
+.lp-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: 1.8rem;
+  gap: 1.1rem;
+}
+.lp-card .card-title {
+  font-size: 1.35rem;
+  margin-bottom: 0;
+}
+.lp-card .lp-desc {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--ink);
+  flex: 1;
+}
+.lp-card .download-btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+</style>
+<link rel="stylesheet" href="shared/style.css">
+</head>
+<body>
+<div class="corkboard">
+
+ <div class="header-paper">
+  <div class="header-center">
+   <h1><span class="big-red">Der Ausreden-Kompass</span></h1>
+   <h2>NOZILLA KOMPASS</h2>
+  </div>
+ </div>
+
+ <div class="intro-box">
+  <p>Wenn über politisches Handeln diskutiert wird, sind die Argumente dagegen oft erstaunlich stabil — unabhängig davon, wer sie vorbringt, in welchem Forum und zu welchem konkreten Vorhaben. Der Ausreden-Kompass dokumentiert zwölf wiederkehrende Argumentationsmuster, die einzeln oder in Kombination dazu dienen, regulatorisches Handeln zu verzögern, zu delegitimieren oder strukturell zu blockieren.</p>
+  <p>Wähle einen Kompass:</p>
+ </div>
+
+ <div class="lp-grid">
+
+  <a href="ki-regulierung/" class="card card-1 lp-card">
+   <div class="pin pin-green" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">KI-REGULIERUNG</span>
+   <p class="card-title">Wie KI-Regulierung verzögert wird</p>
+   <div class="bubble">»Wir brauchen keine Regulierung — wir brauchen Innovation. Regulierung tötet das Potenzial, bevor es sich entfalten kann.«</div>
+   <p class="lp-desc">Zwölf Argumentationsmuster, mit denen erkenntnisreiche Debatten um KI-Regulierung gebremst und politisches Handeln blockiert wird.</p>
+   <span class="download-btn">Zum Kompass →</span>
+  </a>
+
+  <a href="open-data/" class="card card-2 lp-card">
+   <div class="pin pin-green" style="top:-7px; left:50%;"></div>
+   <span class="fig-label">OPEN DATA</span>
+   <p class="card-title">Wie offene Daten verhindert werden</p>
+   <div class="bubble">»Datenschutz, Qualitätsprobleme, fehlende Standards — irgendeinen Grund, Daten nicht zu öffnen, findet man immer.«</div>
+   <p class="lp-desc">Zwölf Argumentationsmuster, mit denen Forderungen nach offenen Daten zurückgewiesen und Transparenz strukturell verhindert wird.</p>
+   <span class="download-btn">Zum Kompass →</span>
+  </a>
+
+ </div>
+
+ <p class="source-note">
+  <a href="https://nozilla.de" target="_blank" rel="noopener" style="color:var(--ink);font-weight:600;text-decoration:underline;">Damian Paderta</a> |
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;">CC BY-SA 4.0</a>
+ </p>
+
+</div>
+</body>
+</html>
