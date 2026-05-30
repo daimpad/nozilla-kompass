@@ -16,634 +16,45 @@
 <meta property="og:description" content="Zwölf stereotype Argumentationsmuster, die Fortschritte bei Open Data blockieren — analog zum Klimaverzögerungsdiskurs.">
 <meta property="og:locale" content="de_DE">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&family=IBM+Plex+Sans:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg: #ffffff;
-  --ink: #0a0a0a;
-  --mint: #53f9ac;
-  --cream: #ffffcc;
-  --border: 3px solid #0a0a0a;
-  --border-thick: 5px solid #0a0a0a;
-  --shadow: 5px 5px 0 #0a0a0a;
-  --shadow-hover: 8px 8px 0 #0a0a0a;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  background: #e8e8e8;
-  min-height: 100vh;
-  padding: 2.5rem 1rem 5rem;
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
-}
-
-.corkboard {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
-  position: relative;
-  overflow: visible;
-}
-
-.header-paper {
-  padding: 0;
-  margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.header-paper::before, .header-paper::after { display: none; }
-
-.header-center { flex: 1; text-align: center; }
-.header-left-col { display: flex; flex-direction: column; align-items: flex-start; flex-shrink: 0; gap: 0.8rem; }
-
-.pin {
-  position: absolute;
-  width: 16px; height: 16px;
-  z-index: 30;
-  background: var(--ink);
-}
-.pin::after { display: none; }
-.pin-red, .pin-blue, .pin-yellow, .pin-green { background: var(--mint); }
-
-h1 {
-  font-family: 'Zilla Slab', serif;
-  font-size: clamp(2rem, 5vw, 3.6rem);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.05;
-  text-align: center;
-  letter-spacing: -0.02em;
-}
-h1 .big-red {
-  color: #fff;
-  font-size: 1em;
-  display: block;
-  background: #000;
-  padding: 30px;
-  line-height: 1.1;
-  max-width: 960px;
-  margin: 0 auto 2rem;
-}
-h2 {
-  font-family: 'Zilla Slab', serif;
-  font-size: clamp(1rem, 3vw, 1.6rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-align: center;
-  color: var(--ink);
-}
-
-.subtitle-scrawl {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
-  color: var(--ink);
-  text-align: center;
-  margin-top: 0.8rem;
-  opacity: 0.5;
-  letter-spacing: 0.01em;
-}
-
-.institute-stamp {
-  display: inline-flex;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.5rem;
-  font-weight: 600;
-  color: var(--ink);
-  border-radius: 50%;
-  width: 72px; height: 72px;
-  flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  line-height: 1.4;
-  padding: 8px;
-  background: var(--mint);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transform: rotate(-6deg);
-}
-
-/* ─── GRIDS ─── */
-.chaos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
-  position: relative;
-}
-.chaos-grid-mid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 1.2rem;
-  margin: 1.2rem 0;
-  align-items: start;
-}
-
-/* ─── CARD ─── */
-.card {
-  background: var(--bg);
-  border: var(--border);
-  position: relative;
-  padding: 1rem;
-  cursor: pointer;
-  transition: transform 0.18s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease;
-  transform-origin: center center;
-  box-shadow: var(--shadow);
-  animation: drop-in 0.45s cubic-bezier(.34,1.56,.64,1) both;
-}
-.card:hover {
-  transform: var(--base-rotate, rotate(0deg)) translateY(-5px) !important;
-  box-shadow: var(--shadow-hover) !important;
-  z-index: 50 !important;
-}
-.card::before { display: none; }
-
-.card-1  { --base-rotate: rotate(-0.8deg); transform: rotate(-0.8deg); }
-.card-2  { --base-rotate: rotate(0.6deg);  transform: rotate(0.6deg);  margin-top: 10px; }
-.card-3  { --base-rotate: rotate(-0.4deg); transform: rotate(-0.4deg); }
-.card-4  { --base-rotate: rotate(0.9deg);  transform: rotate(0.9deg);  margin-top: 6px; }
-.card-5  { --base-rotate: rotate(-1deg);   transform: rotate(-1deg);   margin-top: 4px; }
-.card-6  { --base-rotate: rotate(0.5deg);  transform: rotate(0.5deg); }
-.card-7  { --base-rotate: rotate(-0.6deg); transform: rotate(-0.6deg); margin-top: 8px; }
-.card-8  { --base-rotate: rotate(0.8deg);  transform: rotate(0.8deg); }
-.card-9  { --base-rotate: rotate(-0.9deg); transform: rotate(-0.9deg); margin-top: 4px; }
-.card-10 { --base-rotate: rotate(0.7deg);  transform: rotate(0.7deg); }
-.card-11 { --base-rotate: rotate(-0.5deg); transform: rotate(-0.5deg); margin-top: 6px; }
-.card-12 { --base-rotate: rotate(1.1deg);  transform: rotate(1.1deg); }
-
-.card:nth-child(1)  { animation-delay: .04s }
-.card:nth-child(2)  { animation-delay: .09s }
-.card:nth-child(3)  { animation-delay: .14s }
-.card:nth-child(4)  { animation-delay: .19s }
-.card:nth-child(5)  { animation-delay: .24s }
-.card:nth-child(6)  { animation-delay: .29s }
-.card:nth-child(7)  { animation-delay: .34s }
-.card:nth-child(8)  { animation-delay: .39s }
-.card:nth-child(9)  { animation-delay: .44s }
-.card:nth-child(10) { animation-delay: .49s }
-.card:nth-child(11) { animation-delay: .54s }
-.card:nth-child(12) { animation-delay: .59s }
-
-.redpen {
-  position: absolute;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--ink);
-  background: var(--cream);
-  padding: 1px 5px;
-  line-height: 1.5;
-  transform: rotate(var(--ann-rot, -3deg));
-  z-index: 6;
-}
-
-.fig-label {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  display: block;
-  margin-bottom: 0.35rem;
-  position: relative;
-  z-index: 3;
-  padding-top: 0.25rem;
-}
-
-.card-title {
-  font-family: 'Zilla Slab', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--ink);
-  text-align: center;
-  margin-bottom: 1.1rem;
-  line-height: 1.2;
-  position: relative; z-index: 3;
-}
-
-.char-wrap {
-  display: block;
-  margin: 0 auto 0.6rem;
-  overflow: visible;
-  position: relative; z-index: 3;
-}
-
-.bubble {
-  background: var(--ink);
-  padding: 0.7rem 0.8rem;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.82rem;
-  font-style: italic;
-  line-height: 1.55;
-  color: #ffffff;
-  position: relative;
-  margin-bottom: 0.5rem;
-  z-index: 3;
-}
-.bubble::before {
-  content: '';
-  position: absolute;
-  top: -7px; left: 46%;
-  width: 20px; height: 10px;
-  background: var(--ink);
-  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
-}
-.bubble::after { display: none; }
-
-.scrawl {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.55;
-  position: relative; z-index: 3;
-  border-left: 4px solid var(--mint);
-  padding-left: 0.6rem;
-}
-.scrawl .hi {
-  background: var(--mint);
-  padding: 0 3px;
+@font-face {
+  font-family: 'Zilla Slab';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
+  src: url('fonts/zilla-slab-v12-latin-700.woff2') format('woff2');
 }
-
-/* ─── HUB ─── */
-.hub-zone {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 1rem 0.5rem;
-  position: relative;
-}
-.hub-zone::before, .hub-zone::after { display: none; }
-.hub-card {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  padding: 10rem 1rem;
-  position: relative;
-  z-index: 10;
-}
-.hub-card .hub-kompass {
-  font-family: 'Zilla Slab', serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  text-align: center;
-}
-.hub-kompass .hub-hi {
-  background: var(--mint);
-  padding: 0 6px;
-  display: inline-block;
-}
-
-/* ─── AXIS BANNERS ─── */
-.axis-banner {
-  text-align: center;
-  margin: 3rem 0 0.6rem;
-  position: relative;
-  z-index: 10;
-}
-.axis-banner span {
-  display: inline-block;
-  font-family: 'Zilla Slab', serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  padding: 20px;
-  background: #53f9ac;
-  position: relative;
-  margin-bottom: 1.3rem;
-}
-.axis-banner span::before, .axis-banner span::after { display: none; }
-
-.ab-red    { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
-.ab-purple { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
-.ab-green  { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
-.ab-amber  { background: var(--mint); color: var(--ink); padding: 0.25rem 1rem; }
-
-/* ─── STICKY NOTE ─── */
-.sticky {
-  background: var(--cream);
-  padding: 0.6rem 0.8rem;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.72rem;
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
   font-weight: 500;
-  color: var(--ink);
-  line-height: 1.55;
-  display: inline-block;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-500.woff2') format('woff2');
 }
-
-/* ─── FOOTER ─── */
-.footer-paper {
-  background: var(--cream);
-  margin-top: 3rem;
-  padding: 1.2rem 1.5rem;
-  display: flex; flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center; gap: 0.8rem;
-}
-
-.source-note {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
-  color: rgba(10,10,10,0.6);
-  text-align: center;
-  line-height: 1.8;
-  margin-top: 3.5rem;
-  padding: 1.5rem 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.hub-compass-svg {
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  display: block;
-}
-
-@keyframes compass-wobble {
-  0%   { transform: rotate(-8deg); }
-  18%  { transform: rotate(12deg); }
-  35%  { transform: rotate(-5deg); }
-  52%  { transform: rotate(9deg); }
-  67%  { transform: rotate(-11deg); }
-  83%  { transform: rotate(6deg); }
-  100% { transform: rotate(-8deg); }
-}
-#compass-needle {
-  animation: compass-wobble 7s ease-in-out infinite;
-  transform-origin: 100px 100px;
-  transform-box: view-box;
-}
-
-@keyframes drop-in {
-  0%   { opacity: 0; transform: translateY(-20px) scale(0.9); }
-  70%  { transform: translateY(3px) scale(1.01); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@media (max-width: 850px) {
-  .chaos-grid { grid-template-columns: repeat(2, 1fr); }
-  .chaos-grid-mid { grid-template-columns: 1fr; }
-}
-@media (max-width: 480px) {
-  .chaos-grid { grid-template-columns: 1fr; }
-}
-
-/* ─── INTRO BOX ─── */
-.intro-box {
-  background: #fff;
-  border: 3px solid var(--ink);
-  box-shadow: 5px 5px 0 var(--ink);
-  padding: 1.4rem 1.8rem;
-  max-width: 960px;
-  margin: 0 auto 2rem;
-  position: relative;
-}
-.intro-box p {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.75;
-  color: var(--ink);
-  margin-bottom: 0.7em;
-}
-.intro-box p:last-child { margin-bottom: 0; }
-.intro-box strong {
-  font-weight: 600;
-  background: var(--mint);
-  padding: 0 2px;
-}
-
-/* ─── DOWNLOAD BAR ─── */
-.download-bar {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--mint);
-  border: 3px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
-  padding: 0.75rem 1.6rem;
-  text-decoration: none;
-  transition: box-shadow 0.1s, transform 0.1s;
-}
-.download-btn:hover {
-  box-shadow: 6px 6px 0 var(--ink);
-  transform: translate(-1px, -1px);
-}
-
-/* ─── OVERLAY ─── */
-#overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(10,10,10,0.75);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  flex-direction: column;
-}
-#overlay.open { display: flex; }
-
-#overlay-inner {
-  background: var(--bg);
-  border: var(--border-thick);
-  max-width: 720px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  position: relative;
-  padding: 2.8rem 2.4rem 2.2rem;
-  box-shadow: 10px 10px 0 var(--ink);
-  animation: popIn 0.22s cubic-bezier(.34,1.56,.64,1) both;
-}
-#overlay-inner::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 10px;
-  background: var(--mint);
-}
-@keyframes popIn {
-  from { opacity: 0; transform: scale(0.9) translateY(16px); }
-  to   { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-#overlay-close {
-  position: absolute;
-  top: 14px; right: 16px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--ink);
-  background: var(--mint);
-  border: 3px solid var(--ink);
-  width: 34px; height: 34px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  line-height: 1;
-  z-index: 10;
-  transition: transform 0.15s, background 0.15s;
-}
-#overlay-close:hover { transform: rotate(90deg); background: var(--cream); }
-
-#ov-fig {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.52rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(10,10,10,0.45);
-  margin-bottom: 0.3rem;
-  display: block;
-  position: relative; z-index: 2;
-}
-#ov-title {
-  font-family: 'Zilla Slab', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-  margin-bottom: 1rem;
-  position: relative; z-index: 2;
-}
-#ov-title::after {
-  content: '';
-  display: block;
-  height: 5px;
-  background: var(--mint);
-  margin-top: 0.4rem;
-  width: 60px;
-}
-
-.ov-row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 1.4rem;
-  margin-bottom: 1.4rem;
-  align-items: start;
-  position: relative; z-index: 2;
-}
-#ov-svg-wrap {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  border: var(--border);
-  padding: 0.5rem;
-  background: #fafafa;
-}
-.ov-meta { display: flex; flex-direction: column; gap: 0.7rem; }
-
-#ov-bubble {
-  background: var(--ink);
-  padding: 0.8rem 1rem;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.95rem;
+@font-face {
+  font-family: 'IBM Plex Sans';
   font-style: italic;
-  line-height: 1.6;
-  color: #ffffff;
-  position: relative;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-500italic.woff2') format('woff2');
 }
-#ov-bubble::before {
-  content: '';
-  position: absolute;
-  top: -8px; left: 14px;
-  width: 12px; height: 10px;
-  background: var(--ink);
-  clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-600.woff2') format('woff2');
 }
-#ov-bubble::after { display: none; }
-
-#ov-scrawl {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.82rem;
-  font-style: italic;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.5;
-  border-left: 5px solid var(--mint);
-  padding-left: 0.8rem;
-}
-#ov-scrawl .hi {
-  background: var(--mint);
+@font-face {
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 700;
-  padding: 0 3px;
-}
-
-.ov-divider { display: none; }
-.ov-longtext-label {
-  font-family: 'Zilla Slab', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--ink);
-  display: block;
-  margin-bottom: 0.9rem;
-  position: relative; z-index: 2;
-}
-#ov-longtext {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: var(--ink);
-  position: relative; z-index: 2;
-}
-#ov-longtext p { margin-bottom: 0.9em; }
-#ov-longtext p:last-child { margin-bottom: 0; }
-
-.ov-lit {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 2px solid #53f9ac;
-  width: 100%;
-  box-sizing: border-box;
-}
-.ov-lit-label {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(10,10,10,0.4);
-  display: block;
-  margin-bottom: 0.7rem;
-}
-.ov-lit ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
-.ov-lit li { font-family: 'IBM Plex Sans', sans-serif; font-size: 0.8rem; line-height: 1.4; color: #0a0a0a; }
-.ov-lit-author { font-weight: 600; }
-.ov-lit-journal { color: rgba(10,10,10,0.45); font-style: italic; }
-.ov-lit a { color: #0a0a0a; text-decoration: none; border-bottom: 1.5px solid #53f9ac; }
-.ov-lit a:hover { background: #53f9ac; }
-
-@media (max-width: 500px) {
-  .ov-row { grid-template-columns: 1fr; }
-  #overlay-inner { padding: 2rem 1.2rem 1.8rem; }
+  font-display: swap;
+  src: url('fonts/ibm-plex-sans-v23-latin-700.woff2') format('woff2');
 }
 </style>
+<link rel="stylesheet" href="../shared/style.css">
 </head>
 <body>
 <div class="corkboard">
@@ -675,78 +86,36 @@ h2 {
     <div class="card card-1" data-card="1">
       <div class="pin pin-red" style="top:-7px; left:50%; transform:translateX(-50%);"></div>
       <span class="fig-label">Fig. 1 — Zuständigkeitsvakuum</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M44 28 Q50 24 56 28" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <line x1="72" y1="62" x2="96" y2="52" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
-        <polygon points="96,52 87,48 87,56" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5"/>
-        <line x1="38" y1="19" x2="43" y2="16" stroke="#0a0a0a" stroke-width="1.5"/>
-        <line x1="57" y1="16" x2="62" y2="19" stroke="#0a0a0a" stroke-width="1.5"/>
-      </svg>
+      <img src="1.svg" class="char-img" alt="Figur 1">
       <p class="card-title">Der Zuständigkeitsabwälzer</p>
       <div class="bubble">»Das liegt an der IT. Oder am Statistikreferat. Oder vielleicht ist wirklich der Bund zuständig — fragen Sie dort nach.«</div>
-      <p class="scrawl">Diffuse Zuständigkeit ist kein Naturgesetz — sie ist das Ergebnis von <span class="hi">fehlendem Governance-Design</span>.</p>
     </div>
 
     <!-- F2: Standardisierungsblockade -->
     <div class="card card-2" data-card="2">
       <div class="pin pin-yellow" style="top:-7px; left:50%;"></div>
       <span class="fig-label">Fig. 2 — Standardisierungsblockade</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <line x1="44" y1="29" x2="56" y2="29" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="26" y="42" width="48" height="60" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/>
-        <rect x="34" y="46" width="32" height="6" rx="2" fill="#0a0a0a"/>
-        <line x1="32" y1="60" x2="68" y2="60" stroke="#0a0a0a" stroke-width="1.5"/>
-        <line x1="32" y1="69" x2="68" y2="69" stroke="#0a0a0a" stroke-width="1.5"/>
-        <line x1="32" y1="78" x2="56" y2="78" stroke="#0a0a0a" stroke-width="1.5"/>
-        <line x1="32" y1="87" x2="50" y2="87" stroke="#0a0a0a" stroke-width="1.5"/>
-      </svg>
+      <img src="2.svg" class="char-img" alt="Figur 2">
       <p class="card-title">Der Standardperfektionist</p>
       <div class="bubble">»Solange es keine einheitlichen, rechtssicheren Metadatenstandards gibt, können wir nichts veröffentlichen. Zu riskant.«</div>
-      <p class="scrawl">DCAT-AP.de, INSPIRE, Schema.org — Standards existieren. <span class="hi">Perfektion als Ausrede</span> ist eine Form strategischer Passivität.</p>
     </div>
 
     <!-- F3: Datenschutzreflex -->
     <div class="card card-3" data-card="3">
       <div class="pin pin-blue" style="top:-7px; right:50%;"></div>
       <span class="fig-label">Fig. 3 — Datenschutzreflex</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M50 42 L70 51 L70 74 Q70 92 50 102 Q30 92 30 74 L30 51 Z" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/>
-        <rect x="43" y="67" width="14" height="14" rx="2" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
-        <path d="M43 69 Q43 60 50 60 Q57 60 57 69" fill="none" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="50" cy="75" r="3" fill="#0a0a0a"/>
-      </svg>
+      <img src="3.svg" class="char-img" alt="Figur 3">
       <p class="card-title">Der Datenschutzschilder</p>
       <div class="bubble">»Sobald wir Daten öffnen, stehen wir vor dem Datenschutzbeauftragten. Das Risiko ist nicht kalkulierbar.«</div>
-      <p class="scrawl">Datenschutz und Offenheit sind kein Gegensatz. Die DSGVO hat <span class="hi">explizite Öffnungsklauseln</span> für nicht-personenbezogene Daten.</p>
     </div>
 
     <!-- F4: Publish and Pray -->
     <div class="card card-4" data-card="4">
       <div class="pin pin-green" style="top:-7px; left:50%;"></div>
       <span class="fig-label">Fig. 4 — Publish &amp; Pray</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M43 27 Q50 32 57 27" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <rect x="34" y="55" width="32" height="24" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2"/>
-        <path d="M34 61 Q50 56 66 61" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
-        <line x1="42" y1="44" x2="42" y2="38" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
-        <line x1="58" y1="44" x2="58" y2="38" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
-        <path d="M34 43 Q28 50 26 58" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
-        <path d="M66 43 Q72 50 74 58" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
-      </svg>
+      <img src="4.svg" class="char-img" alt="Figur 4">
       <p class="card-title">Der Laissez-faire-Optimist</p>
       <div class="bubble">»Wir haben die Daten ins Portal gestellt. Jetzt liegt es an den Nutzern — für Adoption sind wir nicht zuständig.«</div>
-      <p class="scrawl">Open-Data-Portale ohne Outreach, Dokumentation und Feedback-Schleifen sind digitale <span class="hi">Geisterstädte</span>.</p>
     </div>
 
   </div><!-- /.chaos-grid top -->
@@ -764,38 +133,18 @@ h2 {
       <div class="card card-5" data-card="5" style="margin-bottom:1rem;">
         <div class="pin pin-red" style="top:-7px; left:45%;"></div>
         <span class="fig-label">Fig. 5 — Modephänomenismus</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-          <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-          <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-          <rect x="26" y="42" width="48" height="54" rx="4" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <rect x="26" y="42" width="48" height="16" rx="4" fill="#0a0a0a"/>
-          <rect x="38" y="36" width="6" height="12" rx="2" fill="#0a0a0a"/>
-          <rect x="56" y="36" width="6" height="12" rx="2" fill="#0a0a0a"/>
-          <line x1="36" y1="67" x2="64" y2="90" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/>
-          <line x1="64" y1="67" x2="36" y2="90" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/>
-        </svg>
+        <img src="5.svg" class="char-img" alt="Figur 5">
         <p class="card-title">Der Trendverächter</p>
         <div class="bubble">»Open Data ist wie Blockchain — ein Hype. In drei Jahren redet kein Mensch mehr davon.«</div>
-        <p class="scrawl">Open Data ist in EU-Recht (Richtlinie 2019/1024) und nationalen OGD-Strategien <span class="hi">institutionell verankert</span>.</p>
       </div>
 
       <!-- F6: Bürgerpessimist -->
       <div class="card card-6" data-card="6">
         <div class="pin pin-yellow" style="top:-7px; right:50%;"></div>
         <span class="fig-label">Fig. 6 — Daten-Elitismus</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-          <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-          <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-          <rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <text x="50" y="78" text-anchor="middle" font-size="28" font-family="serif" font-weight="700" fill="#53f9ac">?</text>
-          <line x1="28" y1="58" x2="14" y2="52" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="72" y1="58" x2="86" y2="52" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
-        </svg>
+        <img src="6.svg" class="char-img" alt="Figur 6">
         <p class="card-title">Der Bürgerpessimist</p>
         <div class="bubble">»Die meisten Bürger können mit Rohdaten nichts anfangen. Der Aufwand lohnt sich schlicht nicht.«</div>
-        <p class="scrawl">Es braucht keine universelle Datenkompetenz — eine <span class="hi">kleine Gruppe Intermediäre</span> schöpft Wert für viele.</p>
       </div>
     </div>
 
@@ -841,38 +190,18 @@ h2 {
       <div class="card card-7" data-card="7" style="margin-bottom:1rem;">
         <div class="pin pin-green" style="top:-7px; right:50%;"></div>
         <span class="fig-label">Fig. 7 — Transparenzmythos</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-          <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <circle cx="43" cy="20" r="7" fill="none" stroke="#53f9ac" stroke-width="3"/>
-          <circle cx="57" cy="20" r="7" fill="none" stroke="#53f9ac" stroke-width="3"/>
-          <line x1="36" y1="20" x2="30" y2="18" stroke="#0a0a0a" stroke-width="2"/>
-          <line x1="64" y1="20" x2="70" y2="18" stroke="#0a0a0a" stroke-width="2"/>
-          <line x1="50" y1="20" x2="50" y2="20" stroke="#0a0a0a" stroke-width="2"/>
-          <rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <path d="M43 30 Q50 35 57 30" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/>
-          <text x="50" y="78" text-anchor="middle" font-size="22" fill="#53f9ac" font-family="sans-serif" font-weight="700">★</text>
-        </svg>
+        <img src="7.svg" class="char-img" alt="Figur 7">
         <p class="card-title">Der Transparenz-Romantiker</p>
         <div class="bubble">»Wir veröffentlichen die Daten — und voilà, haben wir Transparenz! Was wollen Sie noch?«</div>
-        <p class="scrawl">Offene Daten ohne Kontext und Erklärung sind <span class="hi">Datenhaufen ohne Rechenschaft</span>.</p>
       </div>
 
       <!-- F8: Qualitätsnihilist -->
       <div class="card card-8" data-card="8">
         <div class="pin pin-blue" style="top:-7px; left:50%;"></div>
         <span class="fig-label">Fig. 8 — Qualitätsnihilismus</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-          <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-          <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-          <rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-          <circle cx="57" cy="64" r="16" fill="none" stroke="#0a0a0a" stroke-width="2.5"/>
-          <circle cx="57" cy="64" r="9" fill="#53f9ac"/>
-          <line x1="45" y1="76" x2="34" y2="90" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/>
-        </svg>
+        <img src="8.svg" class="char-img" alt="Figur 8">
         <p class="card-title">Der Qualitätsnihilist</p>
         <div class="bubble">»Open Data bedeutet per Definition schlechte Qualität. Die wirklich guten Daten können wir intern nicht freigeben.«</div>
-        <p class="scrawl">Qualitätsängste maskieren oft <span class="hi">Kontrollinteressen</span> — Offenheit verbessert Datenqualität durch externe Prüfung.</p>
       </div>
     </div>
 
@@ -890,79 +219,36 @@ h2 {
     <div class="card card-9" data-card="9">
       <div class="pin pin-blue" style="top:-7px; left:50%;"></div>
       <span class="fig-label">Fig. 9 — Innovationspanik</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <line x1="34" y1="90" x2="34" y2="50" stroke="#0a0a0a" stroke-width="2"/>
-        <line x1="34" y1="90" x2="70" y2="90" stroke="#0a0a0a" stroke-width="2"/>
-        <polyline points="38,56 48,62 58,74 68,86" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polygon points="68,86 61,80 70,78" fill="#0a0a0a"/>
-        <polygon points="38,56 38,48 46,54" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5"/>
-      </svg>
+      <img src="9.svg" class="char-img" alt="Figur 9">
       <p class="card-title">Der Wirtschaftsfeind</p>
       <div class="bubble">»Open Data zerstört Geschäftsmodelle von Geoinformationsunternehmen. Wer soll dann noch Qualitätsdaten erheben?«</div>
-      <p class="scrawl">Empirisch ist Open Data ein <span class="hi">Wertschöpfungsmultiplikator</span> — McKinsey, Deloitte und EU-Kommission konsistent positiv.</p>
     </div>
 
     <!-- F10: Missbrauchsprophet -->
     <div class="card card-10" data-card="10">
       <div class="pin pin-red" style="top:-7px; right:50%;"></div>
       <span class="fig-label">Fig. 10 — Missbrauchspanorama</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <polygon points="50,42 76,94 24,94" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round"/>
-        <line x1="50" y1="56" x2="50" y2="74" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/>
-        <circle cx="50" cy="82" r="3.5" fill="#0a0a0a"/>
-      </svg>
+      <img src="10.svg" class="char-img" alt="Figur 10">
       <p class="card-title">Der Missbrauchsprophet</p>
       <div class="bubble">»Wenn wir die Daten öffnen, werden sie sofort von Trollen, politischen Gegnern und ausländischen Akteuren missbraucht.«</div>
-      <p class="scrawl">Schließung ist kein <span class="hi">wirksamer Schutz</span> — Transparenz schafft externe Kontrolle, die Missbrauch aufdeckt.</p>
     </div>
 
     <!-- F11: Kostenmaximierer -->
     <div class="card card-11" data-card="11">
       <div class="pin pin-yellow" style="top:-7px; left:50%;"></div>
       <span class="fig-label">Fig. 11 — Kostenpanik</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="28" y="42" width="44" height="56" rx="4" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <rect x="28" y="42" width="44" height="18" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/>
-        <rect x="34" y="68" width="10" height="10" rx="2" fill="#0a0a0a"/>
-        <rect x="46" y="68" width="10" height="10" rx="2" fill="#0a0a0a"/>
-        <rect x="58" y="68" width="10" height="10" rx="2" fill="#0a0a0a"/>
-        <rect x="34" y="82" width="10" height="10" rx="2" fill="#0a0a0a"/>
-        <rect x="46" y="82" width="10" height="10" rx="2" fill="#0a0a0a"/>
-        <rect x="58" y="82" width="10" height="10" rx="2" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5"/>
-      </svg>
+      <img src="11.svg" class="char-img" alt="Figur 11">
       <p class="card-title">Der Kostenmaximierer</p>
       <div class="bubble">»Open-Data-Pflege kostet ein Vermögen. Wir haben kein Budget dafür. Bitte keine neuen Pflichtaufgaben!«</div>
-      <p class="scrawl">Open-Data-Kosten werden <span class="hi">systematisch überschätzt</span> — Einsparpotenziale durch weniger Nachfragen und Doppelerhebungen ignoriert.</p>
     </div>
 
     <!-- F12: Kontrollverlust-Ängstler -->
     <div class="card card-12" data-card="12">
       <div class="pin pin-green" style="top:-7px; left:50%;"></div>
       <span class="fig-label">Fig. 12 — Kontrollparanoia</span>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" class="char-wrap" width="100" height="120" aria-hidden="true">
-        <circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/>
-        <circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/>
-        <path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/>
-        <rect x="36" y="68" width="28" height="26" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/>
-        <path d="M38 68 Q38 50 50 50 Q62 50 62 68" fill="none" stroke="#0a0a0a" stroke-width="3"/>
-        <circle cx="50" cy="80" r="5" fill="#fff" stroke="#0a0a0a" stroke-width="2"/>
-        <line x1="50" y1="80" x2="50" y2="88" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="28" y1="42" x2="36" y2="68" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2"/>
-        <line x1="72" y1="42" x2="64" y2="68" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 2"/>
-      </svg>
+      <img src="12.svg" class="char-img" alt="Figur 12">
       <p class="card-title">Der Kontrollverlust-Ängstler</p>
       <div class="bubble">»Wenn wir die Daten einmal freigeben, verlieren wir jeden Einfluss auf ihre Nutzung und Interpretation. Zu riskant.«</div>
-      <p class="scrawl">Lizenzen, Embargofristen und abgestufte Zugangsmodelle ermöglichen <span class="hi">kontrollierte Offenheit</span> ohne Autonomieverlust.</p>
     </div>
 
   </div><!-- /.chaos-grid bottom -->
@@ -1008,31 +294,6 @@ h2 {
 </div>
 
 <script>
-const overlay    = document.getElementById('overlay');
-const ovInner    = document.getElementById('overlay-inner');
-const ovFig      = document.getElementById('ov-fig');
-const ovTitle    = document.getElementById('ov-title');
-const ovSvgWrap  = document.getElementById('ov-svg-wrap');
-const ovBubble   = document.getElementById('ov-bubble');
-const ovScrawl   = document.getElementById('ov-scrawl');
-const ovLong     = document.getElementById('ov-longtext');
-const closeBtn   = document.getElementById('overlay-close');
-
-const SVGS = {
-  1: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 28 Q50 24 56 28" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><line x1="72" y1="62" x2="96" y2="52" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/><polygon points="96,52 87,48 87,56" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5"/><line x1="38" y1="19" x2="43" y2="16" stroke="#0a0a0a" stroke-width="1.5"/><line x1="57" y1="16" x2="62" y2="19" stroke="#0a0a0a" stroke-width="1.5"/></svg>`,
-  2: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><line x1="44" y1="29" x2="56" y2="29" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="26" y="42" width="48" height="60" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/><rect x="34" y="46" width="32" height="6" rx="2" fill="#0a0a0a"/><line x1="32" y1="60" x2="68" y2="60" stroke="#0a0a0a" stroke-width="1.5"/><line x1="32" y1="69" x2="68" y2="69" stroke="#0a0a0a" stroke-width="1.5"/><line x1="32" y1="78" x2="56" y2="78" stroke="#0a0a0a" stroke-width="1.5"/><line x1="32" y1="87" x2="50" y2="87" stroke="#0a0a0a" stroke-width="1.5"/></svg>`,
-  3: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><path d="M50 42 L70 51 L70 74 Q70 92 50 102 Q30 92 30 74 L30 51 Z" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/><rect x="43" y="67" width="14" height="14" rx="2" fill="#fff" stroke="#0a0a0a" stroke-width="2"/><path d="M43 69 Q43 60 50 60 Q57 60 57 69" fill="none" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="50" cy="75" r="3" fill="#0a0a0a"/></svg>`,
-  4: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M43 27 Q50 32 57 27" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><rect x="34" y="55" width="32" height="24" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2"/><path d="M34 61 Q50 56 66 61" fill="none" stroke="#0a0a0a" stroke-width="1.5"/><line x1="42" y1="44" x2="42" y2="38" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/><line x1="58" y1="44" x2="58" y2="38" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/></svg>`,
-  5: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="26" y="42" width="48" height="54" rx="4" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><rect x="26" y="42" width="48" height="16" rx="4" fill="#0a0a0a"/><line x1="36" y1="67" x2="64" y2="90" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/><line x1="64" y1="67" x2="36" y2="90" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/></svg>`,
-  6: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><text x="50" y="78" text-anchor="middle" font-size="28" font-family="serif" font-weight="700" fill="#53f9ac">?</text><line x1="28" y1="58" x2="14" y2="52" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/><line x1="72" y1="58" x2="86" y2="52" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/></svg>`,
-  7: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="43" cy="20" r="7" fill="none" stroke="#53f9ac" stroke-width="3"/><circle cx="57" cy="20" r="7" fill="none" stroke="#53f9ac" stroke-width="3"/><line x1="36" y1="20" x2="30" y2="18" stroke="#0a0a0a" stroke-width="2"/><line x1="64" y1="20" x2="70" y2="18" stroke="#0a0a0a" stroke-width="2"/><rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><path d="M43 30 Q50 35 57 30" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/><text x="50" y="78" text-anchor="middle" font-size="22" fill="#53f9ac" font-family="sans-serif" font-weight="700">★</text></svg>`,
-  8: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="57" cy="64" r="16" fill="none" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="57" cy="64" r="9" fill="#53f9ac"/><line x1="45" y1="76" x2="34" y2="90" stroke="#0a0a0a" stroke-width="4" stroke-linecap="round"/></svg>`,
-  9: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="28" y="42" width="44" height="50" rx="6" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><line x1="34" y1="90" x2="34" y2="50" stroke="#0a0a0a" stroke-width="2"/><line x1="34" y1="90" x2="70" y2="90" stroke="#0a0a0a" stroke-width="2"/><polyline points="38,56 48,62 58,74 68,86" fill="none" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polygon points="68,86 61,80 70,78" fill="#0a0a0a"/><polygon points="38,56 38,48 46,54" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5"/></svg>`,
-  10: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><polygon points="50,42 76,94 24,94" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5" stroke-linejoin="round"/><line x1="50" y1="56" x2="50" y2="74" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="82" r="3.5" fill="#0a0a0a"/></svg>`,
-  11: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="28" y="42" width="44" height="56" rx="4" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><rect x="28" y="42" width="44" height="18" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/><rect x="34" y="68" width="10" height="10" rx="2" fill="#0a0a0a"/><rect x="46" y="68" width="10" height="10" rx="2" fill="#0a0a0a"/><rect x="58" y="68" width="10" height="10" rx="2" fill="#0a0a0a"/><rect x="34" y="82" width="10" height="10" rx="2" fill="#0a0a0a"/><rect x="46" y="82" width="10" height="10" rx="2" fill="#0a0a0a"/><rect x="58" y="82" width="10" height="10" rx="2" fill="#53f9ac" stroke="#0a0a0a" stroke-width="1.5"/></svg>`,
-  12: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120"><circle cx="50" cy="22" r="16" fill="#fff" stroke="#0a0a0a" stroke-width="2.5"/><circle cx="44" cy="20" r="2" fill="#0a0a0a"/><circle cx="56" cy="20" r="2" fill="#0a0a0a"/><path d="M44 30 Q50 26 56 30" fill="none" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round"/><rect x="36" y="68" width="28" height="26" rx="4" fill="#53f9ac" stroke="#0a0a0a" stroke-width="2.5"/><path d="M38 68 Q38 50 50 50 Q62 50 62 68" fill="none" stroke="#0a0a0a" stroke-width="3"/><circle cx="50" cy="80" r="5" fill="#fff" stroke="#0a0a0a" stroke-width="2"/><line x1="50" y1="80" x2="50" y2="88" stroke="#0a0a0a" stroke-width="2.5" stroke-linecap="round"/></svg>`
-};
-
 const CARDS = {
   1: {
     fig: 'FIG. 1 — ZUSTÄNDIGKEITSVAKUUM',
@@ -1195,49 +456,8 @@ const LITS = {
   </ul></div>`
 };
 
-function openCard(num) {
-  const d = CARDS[num];
-  if (!d) return;
-
-  ovFig.textContent   = d.fig;
-  ovTitle.textContent = d.title;
-  ovBubble.innerHTML  = d.bubble;
-
-  const scrawlTemp = document.createElement('div');
-  scrawlTemp.innerHTML = d.scrawl;
-  const hiSpans = scrawlTemp.querySelectorAll('.hi');
-  if (hiSpans.length > 0) {
-    ovScrawl.innerHTML = Array.from(hiSpans).map(s => s.outerHTML).join(' ');
-  } else {
-    ovScrawl.innerHTML = d.scrawl;
-  }
-
-  ovLong.innerHTML = d.long;
-  document.getElementById('ov-lit').innerHTML = LITS[num] || '';
-
-  ovInner.style.setProperty('--accent-color', d.color);
-  ovFig.style.color = d.color;
-
-  ovSvgWrap.innerHTML = `<div style="width:100%;max-width:200px;margin:0 auto;">${SVGS[num]}</div>`;
-
-  overlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  ovInner.scrollTop = 0;
-}
-
-function closeOverlay() {
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.card[data-card]').forEach(card => {
-  card.addEventListener('click', () => openCard(+card.dataset.card));
-});
-
-closeBtn.addEventListener('click', closeOverlay);
-overlay.addEventListener('click', e => { if (e.target === overlay) closeOverlay(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay(); });
 </script>
+<script src="../shared/kompass.js"></script>
 
 </body>
 </html>
