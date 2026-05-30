@@ -91,34 +91,6 @@ h2 {
   color: var(--ink);
 }
 
-.subtitle-scrawl {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
-  color: var(--ink);
-  text-align: center;
-  margin-top: 0.8rem;
-  opacity: 0.5;
-  letter-spacing: 0.01em;
-}
-
-.institute-stamp {
-  display: inline-flex;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.5rem;
-  font-weight: 600;
-  color: var(--ink);
-  border-radius: 50%;
-  width: 72px; height: 72px;
-  flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  line-height: 1.4;
-  padding: 8px;
-  background: var(--mint);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transform: rotate(-6deg);
-}
 
 /* ─── GRIDS ─── */
 .chaos-grid {
@@ -182,20 +154,6 @@ h2 {
 .card:nth-child(12) { animation-delay: .59s }
 
 /* ─── CARD ELEMENTS ─── */
-.redpen {
-  position: absolute;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--ink);
-  background: var(--cream);
-  padding: 1px 5px;
-  line-height: 1.5;
-  transform: rotate(var(--ann-rot, -3deg));
-  z-index: 6;
-}
-
 .fig-label {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.58rem;
@@ -252,23 +210,6 @@ h2 {
 }
 .bubble::after { display: none; }
 
-.scrawl {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--ink);
-  line-height: 1.55;
-  position: relative; z-index: 3;
-  border-left: 4px solid var(--mint);
-  padding-left: 0.6rem;
-}
-.scrawl .hi {
-  background: var(--mint);
-  padding: 0 3px;
-  font-style: normal;
-  font-weight: 700;
-}
 
 /* ─── HUB ─── */
 .hub-zone {
@@ -285,20 +226,6 @@ h2 {
   padding: 10rem 1rem;
   position: relative;
   z-index: 10;
-}
-.hub-card .hub-kompass {
-  font-family: 'Zilla Slab', serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  text-align: center;
-}
-.hub-kompass .hub-hi {
-  background: var(--mint);
-  padding: 0 6px;
-  display: inline-block;
 }
 
 /* ─── AXIS BANNERS ─── */
@@ -326,27 +253,6 @@ h2 {
   padding: 0.25rem 1rem;
 }
 
-/* ─── STICKY NOTE ─── */
-.sticky {
-  background: var(--cream);
-  padding: 0.6rem 0.8rem;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--ink);
-  line-height: 1.55;
-  display: inline-block;
-}
-
-/* ─── FOOTER ─── */
-.footer-paper {
-  background: var(--cream);
-  margin-top: 3rem;
-  padding: 1.2rem 1.5rem;
-  display: flex; flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center; gap: 0.8rem;
-}
 
 .source-note {
   font-family: 'IBM Plex Sans', sans-serif;
@@ -591,7 +497,6 @@ h2 {
   padding: 0 3px;
 }
 
-.ov-divider { display: none; }
 .ov-longtext-label {
   font-family: 'Zilla Slab', serif;
   font-size: 1rem;
