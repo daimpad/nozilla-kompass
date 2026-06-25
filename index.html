@@ -59,6 +59,37 @@
 }
 
 /* Landing-page-specific overrides */
+
+/* Larger, catchier intro text */
+.intro-box {
+  padding: 2rem 2.4rem;
+}
+.intro-box p {
+  font-size: 1.18rem;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+/* Section heading before the compass grid */
+.lp-choose {
+  font-family: 'Zilla Slab', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  text-align: center;
+  color: var(--ink);
+  margin: 3rem 0 0;
+}
+
+/* Image placeholder (replaces the former quote bubbles) */
+.lp-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 3px solid var(--ink);
+  background: var(--mint);
+}
+
 .lp-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,8 +138,9 @@
 
  <div class="intro-box">
   <p>Wenn über politisches Handeln diskutiert wird, sind die Argumente dagegen oft erstaunlich stabil — unabhängig davon, wer sie vorbringt, in welchem Forum und zu welchem konkreten Vorhaben. Der Ausreden-Kompass dokumentiert zwölf wiederkehrende Argumentationsmuster, die einzeln oder in Kombination dazu dienen, regulatorisches Handeln zu verzögern, zu delegitimieren oder strukturell zu blockieren.</p>
-  <p>Wähle einen Kompass:</p>
  </div>
+
+ <h2 class="lp-choose">Wähle einen Kompass</h2>
 
  <div class="lp-grid">
 
@@ -116,7 +148,8 @@
    <div class="pin pin-green" style="top:-7px; left:50%;"></div>
    <span class="fig-label">KI-REGULIERUNG</span>
    <p class="card-title">Wie KI-Regulierung verzögert wird</p>
-   <div class="bubble">»Wir brauchen keine Regulierung — wir brauchen Innovation. Regulierung tötet das Potenzial, bevor es sich entfalten kann.«</div>
+   <!-- Platzhalterbild: placeholder.svg gegen das finale Motiv austauschen -->
+   <img class="lp-img" src="placeholder.svg" alt="" width="320" height="200" loading="lazy">
    <p class="lp-desc">Zwölf Argumentationsmuster, mit denen erkenntnisreiche Debatten um KI-Regulierung gebremst und politisches Handeln blockiert wird.</p>
    <span class="download-btn">Zum Kompass →</span>
   </a>
@@ -125,7 +158,8 @@
    <div class="pin pin-green" style="top:-7px; left:50%;"></div>
    <span class="fig-label">OPEN DATA</span>
    <p class="card-title">Wie offene Daten verhindert werden</p>
-   <div class="bubble">»Datenschutz, Qualitätsprobleme, fehlende Standards — irgendeinen Grund, Daten nicht zu öffnen, findet man immer.«</div>
+   <!-- Platzhalterbild: placeholder.svg gegen das finale Motiv austauschen -->
+   <img class="lp-img" src="placeholder.svg" alt="" width="320" height="200" loading="lazy">
    <p class="lp-desc">Zwölf Argumentationsmuster, mit denen Forderungen nach offenen Daten zurückgewiesen und Transparenz strukturell verhindert wird.</p>
    <span class="download-btn">Zum Kompass →</span>
   </a>
