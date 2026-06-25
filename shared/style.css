@@ -118,6 +118,11 @@ h2 {
   transform-origin: center center;
   box-shadow: var(--shadow);
   animation: drop-in 0.45s cubic-bezier(.34,1.56,.64,1) both;
+  /* Uniform card sizing: equal column-stretch height with a shared floor */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 320px;
 }
 .card:hover {
   transform: var(--base-rotate, rotate(0deg)) translateY(-5px) !important;
@@ -178,18 +183,29 @@ h2 {
   line-height: 1.2;
   position: relative; z-index: 3;
 }
+/* Reserve equal title space on the compass cards so figures and quotes line up */
+.chaos-grid .card-title,
+.chaos-grid-mid .card-title {
+  min-height: 2.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .char-img {
   display: block;
-  margin: 0 auto 0.5rem;
-  width: 100px;
-  height: auto;
+  margin: 0 auto 0.6rem;
+  width: auto;
+  height: 120px;          /* fixed figure height so every card lines up */
+  max-width: 100%;
+  object-fit: contain;
   overflow: visible;
   position: relative; z-index: 3;
 }
 
 .bubble {
   background: var(--ink);
+  margin-top: auto;        /* pin the quote to the bottom edge of every card */
   padding: 0.7rem 0.8rem;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.82rem;
