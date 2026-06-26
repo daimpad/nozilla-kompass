@@ -34,7 +34,7 @@
 
     if (d.color) {
       ovInner.style.setProperty('--accent-color', d.color);
-      ovFig.style.color = d.color;
+      // FIG-Überschrift bewusst NICHT einfärben — bleibt im CSS-Default (dunkel)
       const divider = ovInner.querySelector('.ov-divider');
       if (divider) divider.style.borderColor = d.color + '44';
     }
