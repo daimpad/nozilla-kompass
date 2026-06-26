@@ -8,6 +8,7 @@ Zwei interaktive Webanwendungen, die wiederkehrende Argumentationsmuster dokumen
 |---|---|---|
 | `ki-regulierung/` | KI-Ausreden-Kompass | Zwölf Argumentationsmuster gegen KI-Regulierung |
 | `open-data/` | Open-Data-Ausreden-Kompass | Zwölf Argumentationsmuster gegen offene Daten |
+| `verwaltung/` | Verwaltungs-Ausreden-Kompass | Zwölf Argumentationsmuster gegen die Digitalisierung der öffentlichen Verwaltung |
 
 Beide Kompasse verwenden dasselbe visuelle Konzept: Zwölf Karten sind auf vier thematische Achsen verteilt (Verantwortung abwälzen, Resignation, Verharmlosung, Schaden durch Handlung). Ein Klick auf eine Karte öffnet eine Detailansicht mit Argumentation, Kritik und weiterführenden Quellen.
 
